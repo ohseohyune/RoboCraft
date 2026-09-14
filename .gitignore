@@ -1,0 +1,9 @@
+
+# Generated RoboCraft experiment outputs
+simulator/dataset/
+robocraft/runs/
+
+# Python / Jupyter temporary files
+**/.ipynb_checkpoints/
+__pycache__/
+*.pyc
