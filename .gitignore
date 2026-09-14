@@ -7,3 +7,6 @@ robocraft/runs/
 **/.ipynb_checkpoints/
 __pycache__/
 *.pyc
+
+# RoboCraft training outputs
+robocraft/dump/

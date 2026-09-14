@@ -24,19 +24,47 @@ os.system('mkdir -p ' + args.outf)
 
 tee = Tee(os.path.join(args.outf, 'train.log'), 'w')
 
+
+def write_run_config(datasets):
+    import json
+    import subprocess
+    with open(os.path.join(args.processed_root, 'processed_config.json')) as f:
+        processed = json.load(f)
+    git = lambda *a: subprocess.run(['git', *a], capture_output=True, text=True).stdout.strip()
+    cfg = dict(git_commit=git('rev-parse', 'HEAD'), git_status=git('status', '--short'),
+               processed_root=os.path.abspath(args.processed_root),
+               processed_preprocessing_git_hash=processed['preprocessing_code_git_hash'],
+               raw_dataset_provenance_hash=processed['raw_dataset_provenance_hash'],
+               phases={phase: dict(split=d.split, episodes=[ep['episode_id'] for ep in d.episodes], samples=len(d), augment=d.augment)
+                       for phase, d in datasets.items()},
+               seed=args.random_seed, normalization_source=args.normalization_source,
+               normalization={k: np.asarray(getattr(args, k)).tolist() for k in ('mean_p', 'std_p', 'mean_d', 'std_d')},
+               augment_ratio=args.augment_ratio, hyperparameters={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in vars(args).items()})
+    with open(os.path.join(args.outf, 'run_config.json'), 'w') as f:
+        json.dump(cfg, f, indent=2)
+
+
 def main():
     ### training
 
     # load training data
 
     phases = ['train'] if args.valid == 0 else ['valid']
-    datasets = {phase: PhysicsFleXDataset(args, phase) for phase in phases}
+    if args.dataset_type == 'multimaterial':
+        from multimaterial_dataset import MultiMaterialDynamicsDataset
+        split_of = {'train': 'train', 'valid': 'val'}
+        datasets = {phase: MultiMaterialDynamicsDataset(
+            args, split_of[phase], args.processed_root, augment=args.augment_ratio > 0,
+            episode_ids=[args.tiny_episode] if args.tiny_episode and phase == 'train' else None) for phase in phases}
+        write_run_config(datasets)
+    else:
+        datasets = {phase: PhysicsFleXDataset(args, phase) for phase in phases}
 
-    for phase in phases:
-        if args.gen_data:
-            datasets[phase].gen_data(args.env)
-        else:
-            datasets[phase].load_data(args.env)
+        for phase in phases:
+            if args.gen_data:
+                datasets[phase].gen_data(args.env)
+            else:
+                datasets[phase].load_data(args.env)
 
     dataloaders = {phase: DataLoader(
         datasets[phase],
@@ -125,6 +153,11 @@ def main():
             meter_loss_nxt = AverageMeter()
 
             meter_loss_param = AverageMeter()
+
+            # object next-state error with the same particle indices (= per-point motion error), per predicted step
+            meter_motion = [AverageMeter() for _ in range(args.sequence_length - args.n_his)]
+            meter_zero_motion = AverageMeter()
+            n_nonfinite = 0
 
             for i, data in enumerate(tqdm(dataloaders[phase], desc=f'Epoch {epoch}/{args.n_epoch}')):
                 # each "data" is a trajectory of sequence_length time steps
@@ -246,6 +279,12 @@ def main():
                             meter_loss.update(loss.item(), B)
                             meter_loss_raw.update(loss_raw.item(), B)
 
+                            with torch.no_grad():
+                                meter_motion[j].update(torch.sqrt(((pred_pos_p - gt_pos_p) ** 2).sum(-1).mean()).item(), B)
+                                if j == 0:
+                                    meter_zero_motion.update(torch.sqrt(((state_cur[:, -1, :n_particle] - gt_pos_p) ** 2).sum(-1).mean()).item(), B)
+                                n_nonfinite += int(not torch.isfinite(loss).item()) + int(not torch.isfinite(pred_pos_p).all().item())
+
                 if i % args.log_per_iter == 0:
                     print()
                     print('%s epoch[%d/%d] iter[%d/%d] LR: %.6f, loss: %.6f (%.6f), loss_raw: %.8f (%.8f)' % (
@@ -277,12 +316,25 @@ def main():
             with open(args.outf + '/train.npy','wb') as f:
                 np.save(f, training_stats)
 
+            if args.dataset_type == 'multimaterial':
+                import json
+                training_stats.setdefault('epochs', []).append(dict(
+                    epoch=epoch, phase=phase, loss=meter_loss.avg, loss_raw_l1=meter_loss_raw.avg,
+                    motion_rmse=[m.avg for m in meter_motion], zero_motion_rmse=meter_zero_motion.avg,
+                    nonfinite=n_nonfinite, lr=get_lr(optimizer)))
+                print('epoch summary', training_stats['epochs'][-1])
+                with open(os.path.join(args.outf, 'epoch_log.json'), 'w') as f:
+                    json.dump(training_stats['epochs'], f, indent=1)
+
             if phase == 'valid' and not args.eval:
                 scheduler.step(meter_loss.avg)
                 if meter_loss.avg < best_valid_loss:
                     best_valid_loss = meter_loss.avg
                     torch.save(model.state_dict(), '%s/net_best.pth' % (args.outf))
     
+    if args.dataset_type == 'multimaterial':
+        torch.save(model.state_dict(), '%s/net_final.pth' % args.outf)
+
     if args.eval and model_path is not None:
         args.model_path = model_path
         evaluate(args)

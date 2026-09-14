@@ -37,11 +37,14 @@ def shape_nodes(finger0_xyz, finger1_xyz):
 
 class MultiMaterialDynamicsDataset(Dataset):
 
-    def __init__(self, args, split, root, augment=True):
+    def __init__(self, args, split, root, augment=True, episode_ids=None):
         assert split in ('train', 'val', 'test')
         self.args, self.split, self.root, self.augment = args, split, root, augment
         with open(os.path.join(root, 'split_manifest.json')) as f:
             ids = set(json.load(f)['splits'][split])
+        if episode_ids is not None:                        # subset of this split only (e.g. tiny overfit)
+            assert set(episode_ids) <= ids, (split, sorted(set(episode_ids) - ids))
+            ids = set(episode_ids)
         with open(os.path.join(root, 'episode_index.csv')) as f:
             rows = [r for r in csv.DictReader(f) if r['episode_id'] in ids]
         assert len(rows) == len(ids), (split, len(rows), len(ids))

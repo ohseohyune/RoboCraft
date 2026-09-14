@@ -336,8 +336,9 @@ class DynamicsPredictor(nn.Module):
         else:
             raise NotImplementedError
 
-        n_gripper_touch[torch.count_nonzero(neighbors[:, :, 310:321], dim=(1, 2)) > 0] += 1
-        n_gripper_touch[torch.count_nonzero(neighbors[:, :, 321:], dim=(1, 2)) > 0] += 1
+        # finger0 nodes 309:320, finger1 nodes 320:331 (n_p=300 + 9 floor); was 310:321 / 321:
+        n_gripper_touch[torch.count_nonzero(neighbors[:, :, 309:320], dim=(1, 2)) > 0] += 1
+        n_gripper_touch[torch.count_nonzero(neighbors[:, :, 320:331], dim=(1, 2)) > 0] += 1
         
         do_stationary = n_gripper_touch == 0
         do_rigid = n_gripper_touch == 1

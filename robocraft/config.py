@@ -1,4 +1,5 @@
 import argparse
+import os
 import numpy as np
 from datetime import datetime
 
@@ -65,6 +66,10 @@ parser.add_argument('--vis_height', type=int, default=120)
 train
 '''
 parser.add_argument('--data_type', type=str, default='none')
+parser.add_argument('--dataset_type', type=str, default='legacy', choices=['legacy', 'multimaterial'])
+parser.add_argument('--processed_root', type=str, default='')
+parser.add_argument('--normalization_source', type=str, default='config', choices=['config', 'processed_train_stats'])
+parser.add_argument('--tiny_episode', type=str, default='', help='multimaterial: restrict the train split to this episode id')
 parser.add_argument('--gt_particles', type=int, default=0)
 parser.add_argument('--shape_aug', type=int, default=1)
 
@@ -167,5 +172,9 @@ def gen_args():
 
     args.mean_d = np.array([-0.00284736, 0.00286124, -0.00130389])
     args.std_d = np.array([0.01755744, 0.01663332, 0.01677678])
+
+    if args.normalization_source == 'processed_train_stats':
+        stats = np.load(os.path.join(args.processed_root, 'normalization_stats.npz'))
+        args.mean_p, args.std_p, args.mean_d, args.std_d = stats['mean_p'], stats['std_p'], stats['mean_d'], stats['std_d']
 
     return args
