@@ -70,6 +70,7 @@ parser.add_argument('--dataset_type', type=str, default='legacy', choices=['lega
 parser.add_argument('--processed_root', type=str, default='')
 parser.add_argument('--normalization_source', type=str, default='config', choices=['config', 'processed_train_stats'])
 parser.add_argument('--tiny_episode', type=str, default='', help='multimaterial: restrict the train split to this episode id')
+parser.add_argument('--stationary_gate', type=int, default=1, help="1 (legacy): 'fixed' data forces zero object motion when no finger touches")
 parser.add_argument('--gt_particles', type=int, default=0)
 parser.add_argument('--shape_aug', type=int, default=1)
 

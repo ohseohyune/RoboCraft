@@ -354,7 +354,8 @@ class DynamicsPredictor(nn.Module):
         # pdb.set_trace()
         if 'fixed' in self.args.data_type:
             pred_motion = non_rigid_motion
-            pred_motion[do_stationary] = stationary_motion[do_stationary]
+            if self.args.stationary_gate:   # legacy: no finger contact -> zero motion
+                pred_motion[do_stationary] = stationary_motion[do_stationary]
         else:
             pred_motion[do_stationary] = stationary_motion[do_stationary]
             pred_motion[do_non_rigid] = non_rigid_motion[do_non_rigid]

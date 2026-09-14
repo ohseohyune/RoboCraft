@@ -37,7 +37,7 @@ def write_run_config(datasets):
                raw_dataset_provenance_hash=processed['raw_dataset_provenance_hash'],
                phases={phase: dict(split=d.split, episodes=[ep['episode_id'] for ep in d.episodes], samples=len(d), augment=d.augment)
                        for phase, d in datasets.items()},
-               seed=args.random_seed, normalization_source=args.normalization_source,
+               seed=args.random_seed, normalization_source=args.normalization_source, stationary_gate=bool(args.stationary_gate),
                normalization={k: np.asarray(getattr(args, k)).tolist() for k in ('mean_p', 'std_p', 'mean_d', 'std_d')},
                augment_ratio=args.augment_ratio, hyperparameters={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in vars(args).items()})
     with open(os.path.join(args.outf, 'run_config.json'), 'w') as f:
