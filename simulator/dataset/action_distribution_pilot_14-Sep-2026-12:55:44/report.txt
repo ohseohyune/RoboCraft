@@ -1,0 +1,230 @@
+[Current action space]
+
+midpoint x: 0.5 + p_noise_x, p_noise_x = 0.01*(randn*2-1) (mean -0.01, std 0.02), clipped to [-0.1, 0.1] -> effective ~[0.43, 0.55] (3 sigma)
+midpoint z: same as x (independent draw)
+midpoint y: 0.14 fixed
+angle: uniform [0, pi)  (quat always identity for ngrip; angle only sets closing axis)
+gap: gripper_rate uniform over rate(gap=0.14)..rate(gap=0.06), linear -> target gap uniform [0.06, 0.14]
+finger start: finger0 = mid + 0.4*(-cos a, 0, +sin a), finger1 = mid + 0.4*(cos a, 0, -sin a) (center distance 0.8)
+gap -> rate: rate = (2*sample_radius - (gap + 2*tool_size)) / (2*len_per_grip) = (0.8 - gap - 0.09)/60
+object bbox usage: none (midpoint fixed at 0.5,0.5 + noise; object box x,z in [0.375, 0.625])
+pin constraint: none (pin capsule r=0.025 at x=z=0.5)
+env.py stepm (learned-model action space): offset x,z in [-0.1,0.1], angle [0,pi], same rate limits; p_noise_bound=0.03 defined but unused
+sampling method (current): i.i.d. random; (this pilot): Latin hypercube, seed 7
+
+--------------------------------
+[Execution]
+
+num candidates: 50
+material: E=5000 sigma_y=500 nu=0.2
+seed: 7
+candidate ranges: midpoint offset [-0.1, 0.1], angle [0.0, 3.1416], gap [0.05, 0.2]
+initial identity: x,v,F,C,finger0,finger1,pin == settled (asserted per run); 300-cloud identical across runs (asserted)
+thresholds (chosen after distribution review): {'pin_min': 0.0, 'comp_min': 0.018, 'height_ratio_min': 0.5, 'max_disp_max': 0.25, 'clearance_min': -0.03}
+
+--------------------------------
+[Quality counts]
+
+GOOD: 15 (30%)
+TOO_WEAK: 12 (24%)
+TOO_AGGRESSIVE: 0 (0%)
+PIN_COLLISION: 19 (38%)
+INVALID_GEOMETRY: 4 (8%)
+
+--------------------------------
+[Action table]  (sorted by target gap)
+
+ id    gap  mid_x  mid_z    ang  off_ax   perp    comp   resid  nres  maxd29   clear     pin  both h_rat  class
+  0  0.052  0.442  0.424   41.5  +0.007  0.096  0.0137  0.0130  0.95  0.0643 -0.0131 +0.0450  True  1.10  TOO_WEAK
+ 41  0.055  0.502  0.551  173.5  -0.007  0.050  0.0274  0.0272  1.00  0.0924 -0.0166 +0.0123  True  1.15  GOOD
+  8  0.057  0.515  0.581   97.1  -0.082  0.005  0.0476  0.0273  0.57  0.1653 -0.0445 -0.0650  True  1.16  PIN_COLLISION
+ 33  0.061  0.433  0.437   85.8  +0.058  0.071  0.0401  0.0352  0.88  0.1477 -0.0212 +0.0035  True  1.17  GOOD
+  3  0.063  0.586  0.534   10.6  +0.078  0.049  0.0521  0.0470  0.90  0.1730 -0.0252 -0.0207  True  1.18  PIN_COLLISION
+ 19  0.067  0.437  0.508   45.5  -0.050  0.039  0.0394  0.0356  0.90  0.1458 -0.0230 -0.0218  True  1.17  PIN_COLLISION
+ 38  0.068  0.518  0.591  143.6  -0.069  0.063  0.0427  0.0367  0.86  0.1398 -0.0205 -0.0066  True  1.16  PIN_COLLISION
+ 11  0.074  0.416  0.480  128.9  +0.068  0.052  0.0427  0.0368  0.86  0.1440 -0.0224 -0.0160  True  1.15  PIN_COLLISION
+ 36  0.074  0.523  0.427   58.9  +0.075  0.018  0.0525  0.0431  0.82  0.1790 -0.0444 -0.0507  True  1.18  PIN_COLLISION
+ 49  0.080  0.446  0.483    4.3  -0.053  0.021  0.0345  0.0317  0.92  0.1310 -0.0346 -0.0317  True  1.15  PIN_COLLISION
+ 20  0.080  0.561  0.563    2.9  +0.058  0.066  0.0362  0.0334  0.92  0.1373 -0.0213 +0.0018  True  1.18  GOOD
+ 25  0.085  0.596  0.559   18.8  +0.072  0.086  0.0439  0.0342  0.78  0.1762 -0.0238 +0.0177  True  1.23  GOOD
+  4  0.088  0.483  0.579   81.8  -0.080  0.005  0.0418  0.0234  0.56  0.1487 -0.0443 -0.0598  True  1.17  PIN_COLLISION
+ 37  0.090  0.462  0.435   65.5  +0.043  0.061  0.0375  0.0335  0.89  0.1525 -0.0238 +0.0071  True  1.21  GOOD
+ 14  0.092  0.594  0.408   27.3  +0.126  0.038  0.0703  0.0584  0.83  0.1926 -0.0350 -0.0315  True  1.16  PIN_COLLISION
+ 32  0.098  0.569  0.429   32.7  +0.096  0.023  0.0497  0.0386  0.78  0.1711 -0.0446 -0.0467  True  1.15  PIN_COLLISION
+ 39  0.100  0.553  0.487   70.7  +0.029  0.046  0.0228  0.0217  0.95  0.0898 -0.0160 +0.0099  True  1.13  GOOD
+ 46  0.103  0.539  0.492  158.9  -0.034  0.022  0.0311  0.0283  0.91  0.1160 -0.0184 -0.0034  True  1.16  PIN_COLLISION
+ 34  0.105  0.429  0.586  158.0  +0.034  0.106  0.0151  0.0112  0.74  0.0862 -0.0139 +0.0538  True  1.12  TOO_WEAK
+  2  0.107  0.500  0.414  104.1  +0.084  0.021  0.0499  0.0409  0.82  0.1528 -0.0437 -0.0447  True  1.17  PIN_COLLISION
+ 31  0.110  0.577  0.448  107.1  +0.027  0.089  0.0216  0.0193  0.89  0.1158 -0.0206 +0.0455  True  1.18  GOOD
+  6  0.116  0.548  0.461  136.5  -0.008  0.062  0.0150  0.0124  0.83  0.0690 -0.0125 +0.0430  True  1.11  TOO_WEAK
+ 35  0.118  0.535  0.468  117.8  +0.012  0.046  0.0245  0.0224  0.92  0.1075 -0.0197 +0.0331  True  1.16  GOOD
+ 22  0.121  0.559  0.570  176.7  -0.062  0.067  0.0316  0.0283  0.90  0.1147 -0.0185 +0.0096  True  1.14  GOOD
+ 48  0.124  0.568  0.520   11.4  +0.063  0.034  0.0379  0.0320  0.85  0.1259 -0.0215 -0.0144  True  1.15  PIN_COLLISION
+ 17  0.127  0.505  0.554   97.3  -0.054  0.002  0.0308  0.0273  0.89  0.1054 -0.0198 -0.0157  True  1.14  PIN_COLLISION
+ 16  0.130  0.530  0.543   78.0  -0.036  0.039  0.0273  0.0245  0.90  0.0994 -0.0167 +0.0133  True  1.14  GOOD
+ 12  0.131  0.546  0.444  129.8  +0.014  0.071  0.0122  0.0097  0.80  0.0636 -0.0130 +0.0503  True  1.11  TOO_WEAK
+ 18  0.135  0.480  0.507  144.2  +0.012  0.018  0.0253  0.0229  0.90  0.1028 -0.0186 +0.0321  True  1.17  GOOD
+ 27  0.137  0.455  0.472  123.8  +0.048  0.022  0.0271  0.0246  0.91  0.1072 -0.0187 -0.0007  True  1.16  PIN_COLLISION
+ 42  0.141  0.423  0.455   62.8  +0.005  0.089  0.0087  0.0061  0.70  0.0566 -0.0116 +0.0720  True  1.11  TOO_WEAK
+ 23  0.144  0.415  0.467   53.3  -0.025  0.088  0.0094  0.0068  0.72  0.0444 -0.0104 +0.0574  True  1.07  TOO_WEAK
+ 15  0.149  0.511  0.444   73.1  +0.057  0.006  0.0310  0.0262  0.84  0.1059 -0.0184 -0.0069  True  1.13  PIN_COLLISION
+ 28  0.150  0.471  0.515   87.8  -0.016  0.029  0.0129  0.0105  0.82  0.0581 -0.0125 +0.0375  True  1.10  TOO_WEAK
+ 30  0.154  0.466  0.528   17.1  -0.041  0.017  0.0212  0.0193  0.91  0.0825 -0.0158 +0.0126  True  1.13  GOOD
+ 24  0.155  0.543  0.547  150.8  -0.061  0.021  0.0290  0.0263  0.91  0.1072 -0.0180 -0.0045  True  1.15  PIN_COLLISION
+ 45  0.158  0.527  0.540   37.4  -0.002  0.048  0.0132  0.0106  0.80  0.0664 -0.0129 +0.0610  True  1.12  TOO_WEAK
+ 26  0.162  0.408  0.458  112.5  +0.075  0.069  0.0287  0.0205  0.72  0.0947 -0.0162 +0.0161  True  1.10  GOOD
+ 21  0.166  0.459  0.576   29.5  -0.073  0.046  0.0287  0.0242  0.84  0.1026 -0.0182 +0.0015  True  1.13  GOOD
+ 13  0.168  0.588  0.405   22.5  +0.118  0.054  0.0469  0.0370  0.79  0.1402 -0.0221 -0.0148 False  1.15  PIN_COLLISION
+ 29  0.171  0.474  0.597  137.7  -0.046  0.089  0.0129  0.0084  0.66  0.0515 -0.0108 +0.0527 False  1.09  INVALID_GEOMETRY
+  1  0.174  0.584  0.595  110.1  -0.118  0.046  0.0456  0.0361  0.79  0.1384 -0.0255 -0.0220 False  1.13  PIN_COLLISION
+  9  0.176  0.427  0.503   47.5  -0.052  0.052  0.0213  0.0182  0.85  0.0839 -0.0150 +0.0269  True  1.11  GOOD
+ 44  0.180  0.410  0.402  164.6  +0.113  0.070  0.0427  0.0289  0.68  0.1261 -0.0209 +0.0036 False  1.12  INVALID_GEOMETRY
+  7  0.184  0.400  0.418   55.7  +0.011  0.128  0.0001  0.0001  0.46  0.0013 +0.0077 +0.1094 False  1.00  TOO_WEAK
+ 40  0.187  0.496  0.520  172.2  +0.001  0.020  0.0063  0.0037  0.59  0.0306 -0.0084 +0.0688  True  1.06  TOO_WEAK
+ 10  0.190  0.490  0.499  121.7  +0.006  0.008  0.0127  0.0086  0.68  0.0488 -0.0115 +0.0641  True  1.09  TOO_WEAK
+  5  0.192  0.452  0.493  167.0  +0.048  0.004  0.0209  0.0186  0.89  0.0737 -0.0144 +0.0225 False  1.11  INVALID_GEOMETRY
+ 43  0.196  0.574  0.564   93.0  -0.068  0.070  0.0257  0.0192  0.75  0.0845 -0.0151 +0.0326 False  1.11  INVALID_GEOMETRY
+ 47  0.197  0.487  0.528  151.6  -0.002  0.030  0.0103  0.0066  0.64  0.0516 -0.0113 +0.0749  True  1.10  TOO_WEAK
+
+--------------------------------
+[Gap bins]
+
+          bin   n pin<0 GOOD comp mean comp min
+[0.050,0.065)   5     2    2    0.0362   0.0137
+[0.065,0.075)   4     4    0    0.0443   0.0394
+[0.075,0.090)   5     2    3    0.0388   0.0345
+[0.090,0.100)   2     2    0    0.0600   0.0497
+[0.100,0.140)  14     5    6    0.0266   0.0122
+[0.140,0.170)  10     3    3    0.0230   0.0087
+[0.170,0.200)  10     1    1    0.0198   0.0001
+
+--------------------------------
+[Monte-Carlo pin overlap, analytic, max error vs sim 4.9e-04]
+
+current: {"pin_overlap_rate": 0.2638, "rejected_with_margin": 0.36231, "by_gap": {"[0.06,0.07)": 0.6301023479831427, "[0.07,0.08)": 0.47942733397497594, "[0.08,0.10)": 0.301841712294674, "[0.10,0.12)": 0.1425127566394793, "[0.12,0.14)": 0.05687392812986081}}
+recommended_box: {"pin_overlap_rate": 0.183275, "rejected_with_margin": 0.28974, "by_gap": {"[0.07,0.08)": 0.4673994880289113, "[0.08,0.10)": 0.25754032499850094, "[0.10,0.12)": 0.056893401623386346, "[0.12,0.14)": 0.004682856542490919}}
+
+--------------------------------
+[Representative actions]
+
+GOOD: [25, 20, 41, 35, 30]
+TOO_WEAK: [7, 40, 42]
+TOO_AGGRESSIVE: []
+PIN_COLLISION: [8, 4, 36]
+
+--------------------------------
+[Recommended candidate distribution]  CANDIDATE, not final
+
+midpoint x: [0.47, 0.53]
+midpoint z: [0.47, 0.53]
+angle: [0.0, 3.1416]
+target gap: [0.07, 0.13]
+pilot candidates inside region: {'total': 0, 'GOOD': 0, 'TOO_WEAK': 0, 'TOO_AGGRESSIVE': 0, 'PIN_COLLISION': 0, 'INVALID_GEOMETRY': 0}
+
+--------------------------------
+[Visual paths]
+
+plots: /home/seohy/colcon_ws/src/RoboCraft/simulator/dataset/action_distribution_pilot_14-Sep-2026-12:55:44/plots/
+representative videos/images: /home/seohy/colcon_ws/src/RoboCraft/simulator/dataset/action_distribution_pilot_14-Sep-2026-12:55:44/representative_visuals/
+
+--------------------------------
+[Disk usage]
+
+output folder size: 55M
+remaining disk: 10.14 GiB
+
+--------------------------------
+[Threshold choice]  (from metric distributions, not fixed in advance)
+
+PIN_COLLISION: min finger-pin surface distance < 0 (geometric overlap). Analytic formula matches sim within 4.9e-4, sign agrees 50/50.
+TOO_WEAK: compression_RMS < 0.018. Natural break among pin-safe runs: 0.0151 -> 0.0209.
+  Marginal cluster 0.012-0.015 (ids 12,10,28,45,0,6,34): still deforms (max disp 0.04-0.07 = 3-4 dx) but mostly elastic.
+TOO_AGGRESSIVE: clearance < -0.03 (penetration > 2dx), height ratio < 0.5, max disp > 0.25, NaN/explosion.
+  clearance < -0.03 only happened together with pin collision (particles trapped between finger and pin).
+INVALID_GEOMETRY: one finger never touches the object (one-sided push). Start pose checks (in domain, no start overlap, gap error) all passed.
+
+--------------------------------
+[Gap analysis]
+
+gap range tested: [0.05, 0.20] (current [0.06, 0.14])
+collision region: not a gap band. Overlap when |offset along closing axis| > gap/2 - 0.025 (perp offset loosens it).
+  Occurs at all gaps in pilot (0.057 ... 0.174). Current sampler: 26% overall, 63% at gap 0.06-0.07, 48% 0.07-0.08, 30% 0.08-0.10, 6% 0.12-0.14.
+weak-interaction region: centered grips (|along| < 0.03) with gap >= ~0.14 (0.150: 0.0129, 0.158: 0.0132, 0.187-0.197: 0.006-0.013),
+  or closing line near object edge (perp offset >= ~0.06 with gap >= ~0.105; perp 0.096 weak even at gap 0.052).
+  Gap > 0.14 only reaches GOOD via one-sided push with |along| >= 0.04 (pin-risky, one-finger contact in 4 cases).
+aggressive: none at any gap, including 0.052-0.061 (GOOD 41, 33 when pin-safe).
+recommended lower bound: 0.07 (limited by pin, not by deformation). Filter mandatory: 47% of 0.07-0.08 samples overlap in the ±0.03 box.
+  0.08 lowers rejection 29% -> 22% but drops the most compressive grips.
+recommended upper bound: 0.13 (centered 0.130/0.135 GOOD 0.027/0.025, centered 0.150 weak 0.013).
+
+--------------------------------
+[Midpoint analysis]
+
+usable x-z region: no clean x-z blob (see midpoint_quality_map.png); quality depends on offset relative to closing axis.
+  pin-safe needs small along-axis offset, strong contact needs perp offset <= ~0.06.
+  Uniform box [0.47, 0.53]^2 + analytic pin filter keeps perp <= 0.042 and removes overlap.
+problematic region: offsets >= ~0.05 from center along the closing direction (pin), perp >= 0.09 (edge grazing: id 7 no contact, perp 0.128).
+note: current noise 0.01*(randn*2-1) has mean -0.01 in x and z (biased toward -x,-z), std 0.02.
+
+--------------------------------
+[Angle analysis]
+
+usable angle range: full [0, pi). No angle-only structure in angle_vs_compression.png (square object, vertical capsules).
+problematic orientations: none by angle alone; failures come from midpoint offset direction relative to the angle.
+
+--------------------------------
+[Answers]
+
+1. GOOD 15/50 = 30% over the widened pilot space. Inside the current effective space (offset ±0.05, gap 0.06-0.14): 3/6 GOOD, 1 weak, 2 pin (n=6, weak evidence).
+   Analytic MC of the current sampler: 26% pin overlap -> GOOD <= 74%.
+2. TOO_WEAK: large gap with centered midpoint (>= ~0.14), or large perpendicular offset (edge contact). Not angle.
+3. PIN_COLLISION: midpoint offset along the closing axis larger than gap/2 - 0.025. Small gap makes it more likely, but offset drives it.
+4. TOO_AGGRESSIVE: none. Largest pin-safe displacement id 25 (max disp 0.176, one finger pushes deep) is stable; watch case.
+5. lower bound candidate: 0.07 with pin filter (0.08 if fewer rejections preferred).
+6. upper bound candidate: 0.13.
+7. midpoint: uniform [0.47, 0.53] in x and z + pin filter.
+8. angle range: no need to narrow.
+9. current action space as-is: no. 26% pin overlap, biased midpoint noise.
+10. midpoint x [0.47, 0.53], z [0.47, 0.53], angle [0, pi), gap [0.07, 0.13], reject if analytic pin distance < 0.005 (~29% rejection).
+
+--------------------------------
+[Recommendation]
+
+Action sampling logic 자체 수정 (+ gap upper 0.14 -> 0.13).
+- Narrowing ranges alone doesn't remove pin collisions: offset ±0.02 still gives 3-12% overlap (MC), ±0.01 needed for ~0%.
+  The analytic filter is exact for this straight close (verified 4.9e-4), so rejection sampling is cheaper than shrinking diversity.
+- Replace biased randn noise with a centered uniform box.
+- Caveats: 0 of the 50 pilot candidates fall inside the recommended region, so it is supported by trends + the verified
+  analytic pin rule, not by direct samples. good_action_pool.npz is therefore empty (all_good_action_id lists the 15 GOOD ids).
+  The filter reshapes the low-gap distribution (low gaps survive only near center / with perp offset).
+  Validate with a small single-grip batch from this distribution or the planned 5x5 sequential test before fixing it.
+
+================================================================
+[Region validation]  20 single grips sampled from recommended_action_region.json
+================================================================
+
+sampling: LHS 60 over midpoint x,z [0.47,0.53], angle [0,pi), gap [0.07,0.13] (seed 11)
+          -> analytic pin filter (margin 0.005): 38/60 accepted (37% rejected; MC estimate 29%)
+          -> 20 picked evenly spaced over gap
+same shared settled state, E=5000 sigma_y=500 nu=0.2, 30 close + 10 retreat, thresholds unchanged from pilot
+
+counts: GOOD 18, TOO_WEAK 2, TOO_AGGRESSIVE 0, PIN_COLLISION 0, INVALID_GEOMETRY 0
+stability: NaN 0, Inf 0, explosion no, max per-step disp 0.021, height ratio 1.10-1.18
+pin: min finger-pin surface distance +0.0062 (all > 0); analytic vs sim max error 2.8e-14
+contact: both fingers contact in all 20 (first contact frame 16-25)
+compression_RMS 0.0177-0.0360, normalized residual 0.88-0.94, max disp f29 0.068-0.122, min clearance -0.021
+
+TOO_WEAK cases: id 15 gap 0.121 comp 0.0177, id 16 gap 0.123 comp 0.0179 (just below 0.018).
+compression by gap (mean / min): [0.07,0.09) n3 0.0283/0.0230 | [0.09,0.11) n6 0.0268/0.0191 | [0.11,0.12) n6 0.0231/0.0190 | [0.12,0.13) n5 0.0207/0.0177
+corr(gap, compression) = -0.59
+
+interpretation:
+- region + filter removes pin collisions and one-sided pushes completely (0/20 vs 23/50 in wide pilot).
+- upper gap edge is borderline: gap >= 0.12 gives compression ~0.018-0.019, right at the threshold.
+- trade-off: diversity narrower than wide pilot (compression 0.018-0.036 vs 0.006-0.07; normalized residual 0.88-0.94).
+  The largest compressions in the wide pilot came from off-center pushes, which are the pin-risky ones.
+
+options (not final):
+- keep gap [0.07, 0.13]: 90% GOOD, weak cases are marginal (0.0177).
+- gap [0.07, 0.12]: likely ~100% GOOD by this threshold, slightly less gentle-grip coverage.
+outputs: validation_region/ (action_table.csv, summary.json, validation_gap_plots.png, good_action_pool.npz with 18 actions)

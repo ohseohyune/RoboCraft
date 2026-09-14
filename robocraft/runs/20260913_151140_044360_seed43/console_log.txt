@@ -1,0 +1,2080 @@
+[Taichi] mode=release
+[Taichi] preparing sandbox at /tmp/taichi-dmlz4__0
+[Taichi] version 0.7.20, llvm 10.0.0, commit 284f75ed, linux, python 3.8.11
+[Taichi] Starting on arch=x64
+[Taichi] Starting on arch=cuda
+rm: cannot remove '/home/seohy/colcon_ws/src/RoboCraft/robocraft/runs/20260913_151140_044360_seed43/control/C/sim_0+alphabet+algo_predict+5_grips+GD+emd_chamfer_h+correction_1+debug_0': No such file or directory
+ENV:
+  loss:
+    soft_contact: False
+    target_path: envs/assets/Chopsticks3D-v1.npy
+    weight:
+      contact: 1
+      density: 10
+      sdf: 10
+  n_observed_particles: 200
+PRIMITIVES: [{'shape': 'Capsule', 'h': 0.2, 'r': 0.045, 'init_pos': '(0.35, 0.4, 0.5)', 'init_rot': '(1., 0., 0., 0.)', 'color': '(0.8, 0.8, 0.8)', 'friction': 1.0, 'action': {'dim': 6, 'scale': '(0.02, 0.02, 0.02, 0.04, 0.04, 0.04)'}}, {'shape': 'Capsule', 'h': 0.2, 'r': 0.045, 'init_pos': '(0.65, 0.4, 0.5)', 'init_rot': '(1., 0., 0., 0.)', 'color': '(0.8, 0.8, 0.8)', 'friction': 1.0, 'action': {'dim': 6, 'scale': '(0.02, 0.02, 0.02, 0.04, 0.04, 0.04)'}}, {'shape': 'Capsule', 'h': 0.13, 'r': 0.025, 'init_pos': '(0.5, 0.1, 0.5)', 'init_rot': '(1., 0., 0., 0.)', 'color': '(0.2, 0.2, 0.2)', 'friction': 15.0}]
+RENDERER:
+  bake_size: 6
+  camera_pos: (0.5, 1.2, 4.0)
+  camera_pos_1: (0.5, 2.5, 2.2)
+  camera_pos_2: (0.5, 2.5, 2.2)
+  camera_pos_3: (0.5, 2.5, 2.2)
+  camera_pos_4: (0.5, 2.5, 2.2)
+  camera_rot: (0.2, 0)
+  camera_rot_1: (0.8, 0.0)
+  camera_rot_2: (0.8, 0.0)
+  camera_rot_3: (0.8, 0.0)
+  camera_rot_4: (0.8, 0.0)
+  dx: 0.006666666666666667
+  image_res: (512, 512)
+  light_direction: (2.0, 1.0, 0.7)
+  max_num_particles: 1000000
+  max_ray_depth: 2
+  sdf_threshold: 0.20720000000000002
+  spp: 50
+  target_res: (64, 64, 64)
+  use_directional_light: False
+  use_roulette: False
+  voxel_res: (168, 168, 168)
+SHAPES: [{'shape': 'box', 'width': '(0.25, 0.2, 0.25)', 'init_pos': '(0.5, 0.1, 0.5)', 'n_particles': 20000, 'color': '((150<<8)+ (150<<16))'}]
+SIMULATOR:
+  E: 5000.0
+  dim: 3
+  dtype: float64
+  gravity: (0, -5, 0)
+  ground_friction: 100.0
+  max_steps: 1024
+  n_particles: 9000
+  nu: 0.2
+  quality: 1
+  yield_stress: 4000.0
+VARIANTS: [{'ENV': {'loss': {'target_path': 'envs/assets/gripper-v1.npy'}}}]
+Building primitive
+action:
+  dim: 6
+  scale: (0.02, 0.02, 0.02, 0.04, 0.04, 0.04)
+color: (0.8, 0.8, 0.8)
+friction: 1.0
+h: 0.2
+init_pos: (0.35, 0.4, 0.5)
+init_rot: (1.0, 0.0, 0.0, 0.0)
+lower_bound: (0.0, 0.0, 0.0)
+r: 0.045
+shape: Capsule
+upper_bound: (1.0, 1.0, 1.0)
+variations: None
+Building primitive
+action:
+  dim: 6
+  scale: (0.02, 0.02, 0.02, 0.04, 0.04, 0.04)
+color: (0.8, 0.8, 0.8)
+friction: 1.0
+h: 0.2
+init_pos: (0.65, 0.4, 0.5)
+init_rot: (1.0, 0.0, 0.0, 0.0)
+lower_bound: (0.0, 0.0, 0.0)
+r: 0.045
+shape: Capsule
+upper_bound: (1.0, 1.0, 1.0)
+variations: None
+Building primitive
+action:
+  dim: 0
+  scale: ()
+color: (0.2, 0.2, 0.2)
+friction: 15.0
+h: 0.13
+init_pos: (0.5, 0.1, 0.5)
+init_rot: (1.0, 0.0, 0.0, 0.0)
+lower_bound: (0.0, 0.0, 0.0)
+r: 0.025
+shape: Capsule
+upper_bound: (1.0, 1.0, 1.0)
+variations: None
+{'width': (0.25, 0.2, 0.25), 'init_pos': (0.5, 0.1, 0.5), 'n_particles': 20000, 'color': 9868800}
+Initialize Renderer
+bake_size: 6  
+camera_pos: (0.5, 1.2, 4.0)  
+camera_pos_1: (0.5, 2.5, 2.2)  
+camera_pos_2: (0.5, 2.5, 2.2)  
+camera_pos_3: (0.5, 2.5, 2.2)  
+camera_pos_4: (0.5, 2.5, 2.2)  
+camera_rot: (0.2, 0)  
+camera_rot_1: (0.8, 0.0)  
+camera_rot_2: (0.8, 0.0)  
+camera_rot_3: (0.8, 0.0)  
+camera_rot_4: (0.8, 0.0)  
+dx: 0.006666666666666667  
+image_res: (512, 512)  
+light_direction: (2.0, 1.0, 0.7)  
+max_num_particles: 1000000  
+max_ray_depth: 2  
+sdf_threshold: 0.20720000000000002  
+spp: 50  
+target_res: (64, 64, 64)  
+use_directional_light: False  
+use_roulette: False  
+voxel_res: (168, 168, 168)
+[Taichi] materializing...
+model_kp #params: 443560
+GT shape: init pose: (1, 3, 11, 14); actions: (1, 3, 40, 12)
+GT init pose: [[0.86783522 0.14       0.5624547  1.         0.         0.
+  0.        ]
+ [0.39378917 0.14       0.85976597 1.         0.         0.
+  0.        ]
+ [0.67824562 0.14       0.81781338 1.         0.         0.
+  0.        ]]
+=============== 1/2 ===============
+[0.43840873 0.14       0.51745065] 0.41906007314196 0.7558345826130999
+[0.557462   0.14       0.52657443] 1.7001112305099415 0.09114961766411475
+[0.483192   0.14       0.54832754] 0.799287539919441 0.17870929908317926
+[0.45536464 0.14       0.48479831] 0.9930463511764634 0.24084297511319697
+[0.55583026 0.14       0.57543441] 1.2106972831268685 2.998612881780078
+[0.52715594 0.14       0.43320001] 2.8183183084158236 0.9362056085078577
+[0.42082073 0.14       0.5069124 ] 1.4941300526639816 1.9992268703966152
+[0.56538604 0.14       0.56562449] 1.6501393576065846 0.3267851686978482
+[0.57248644 0.14       0.48591248] 2.717531431328918 2.1117072031123283
+[0.4640894  0.14       0.56347956] 0.649968412303434 1.2704765407188952
+[0.53771633 0.14       0.49120983] 1.7613752942628071 1.2919972232630506
+[0.4838715  0.14       0.52722323] 2.2139293765875743 1.9149888134705582
+[0.4529731  0.14       0.45186584] 2.499887371881966 0.912107321740927
+[0.46793868 0.14       0.44311654] 1.2690672973544614 0.9747404661677442
+[0.51409665 0.14       0.45925492] 2.3491906605788038 2.2624074184061422
+[0.43643884 0.14       0.57098279] 1.5812880929565467 2.8264080332332036
+[0.51511187 0.14       0.57446537] 3.1375030724620445 0.07592797468624572
+[0.46662763 0.14       0.43019529] 1.7895278270250154 0.015969609867156235
+[0.55922904 0.14       0.56137623] 2.998083077586282 2.324350740951477
+[0.48954853 0.14       0.56174392] 0.8012515206251996 1.3927079050036708
+[0.4365364  0.14       0.49841755] 0.14044302227526417 0.9790065682384067
+[0.53447985 0.14       0.57064868] 2.4406887766602186 0.6761603215267848
+[0.50836226 0.14       0.55518366] 2.8980861852352247 2.604258664025607
+[0.5157101  0.14       0.48923169] 2.1807275421730177 1.5226875150329786
+[0.52309928 0.14       0.45275299] 2.3403518328114217 0.33180623972703055
+[0.47351824 0.14       0.57508088] 2.2021800762687094 1.2996314368146147
+[0.42965817 0.14       0.53619387] 2.8445581605048558 0.050346906042577785
+[0.53657665 0.14       0.46675161] 1.642417150767924 2.5599326996087264
+[0.48056885 0.14       0.43240925] 1.5296608662382196 1.4708745357647866
+[0.43122175 0.14       0.50134415] 1.0425429722269712 0.6738647766128897
+[0.55406888 0.14       0.476818  ] 2.5974219089916395 0.08156287428959874
+[0.56790684 0.14       0.52782932] 3.125302176545679 1.5064094527174183
+[0.57236529 0.14       0.44657123] 1.160144007685108 2.9360067796658504
+[0.49263394 0.14       0.56196649] 1.0034405909127635 3.024279105047579
+[0.49776248 0.14       0.47140665] 3.0581488050917285 3.137566816671946
+[0.42715931 0.14       0.49152978] 2.2310799338070337 1.966861083505749
+[0.57550702 0.14       0.5259154 ] 0.28729928389613474 1.852694609268654
+[0.5472121  0.14       0.47604896] 1.5784507470592724 2.210233412999845
+[0.51616951 0.14       0.44560554] 2.596772633283306 1.0452129919094557
+[0.5529137  0.14       0.57505073] 1.0289814797321128 0.27763454246180475
+[0.57828855 0.14       0.56705233] 2.671879595854794 1.5509814930578003
+[0.50943245 0.14       0.43710435] 2.823465843730435 1.9325419479223747
+[0.53081222 0.14       0.47675758] 0.5449512167041721 0.14504123092775564
+[0.47692711 0.14       0.49670195] 2.0702408357571174 0.2699954210672528
+[0.4525477  0.14       0.52434556] 1.8131902101710429 2.1419445829637964
+[0.42356316 0.14       0.42623587] 1.4348086862855154 2.757093435213207
+[0.50407893 0.14       0.5070762 ] 1.622378066766059 2.7845580611714986
+[0.55112349 0.14       0.55315472] 1.866674638238701 0.6233443802658548
+[0.42086901 0.14       0.42843941] 1.8257363137428793 0.7915979358011881
+[0.42704212 0.14       0.56349134] 1.7512762186171729 0.07414847671662723
+[0.53248172 0.14       0.53436089] 1.4012513465204983 1.3353941261221547
+[0.57110713 0.14       0.54631327] 3.1161402002931187 2.8522761117764377
+[0.4898823  0.14       0.51977046] 1.0187803754312523 0.10237232690047986
+[0.50900826 0.14       0.50592718] 3.053030200280875 1.6700944175831143
+[0.46340233 0.14       0.48287573] 0.22063027883759942 1.3943917360065092
+[0.43001532 0.14       0.54693032] 0.44133291072608055 2.805946070984684
+[0.54974438 0.14       0.56029285] 0.027853076877553767 1.9397797651026951
+[0.56847409 0.14       0.51329129] 2.461442087716924 1.5854958887866173
+[0.45770458 0.14       0.4885045 ] 2.042346438385374 0.8873140814740835
+[0.57118442 0.14       0.43710245] 1.2586014150353153 2.4970254709763346
+[0.50857432 0.14       0.4761439 ] 1.6604073392642498 1.0317012043304552
+[0.56315585 0.14       0.57737201] 1.3383021891404847 2.215515075618621
+[0.5421279  0.14       0.54760931] 0.9675451877571618 0.13641943370932866
+[0.53260519 0.14       0.5355817 ] 2.045950291891017 0.2057483156874445
+[0.49837827 0.14       0.54895089] 3.0759892735731995 1.8285781727526487
+[0.47598802 0.14       0.57086568] 2.0601426155012903 1.3617140198435211
+[0.54077202 0.14       0.44626195] 0.45106678457266564 2.059355722744393
+[0.54968222 0.14       0.53456168] 2.418211882717827 0.5118153294542112
+[0.5177852  0.14       0.45029704] 0.16955221241379204 0.8216915679401658
+[0.42660187 0.14       0.46610922] 0.2951820387351509 2.1389280692625547
+[0.4991768  0.14       0.46733105] 2.769502091437724 2.2665794268720405
+[0.51913795 0.14       0.44161497] 0.9356649412689739 1.14338269482685
+[0.56963654 0.14       0.42807243] 2.5415082243274703 1.9646304727269115
+[0.46195673 0.14       0.42286361] 0.24978852899380483 0.25246643690462606
+[0.44781602 0.14       0.53096947] 2.1047742902916475 0.09972970633907578
+[0.56882259 0.14       0.51172807] 1.3515812845202637 0.4706892651480562
+[0.48192829 0.14       0.46812082] 0.3646532668724472 0.9482064047503618
+[0.4753626  0.14       0.45028064] 2.088038233608903 2.590422863515788
+[0.48711522 0.14       0.4589863 ] 1.78791255948054 2.8216397819811116
+[0.53087193 0.14       0.47995322] 0.5539471728415777 0.5362231095730676
+[0.44624505 0.14       0.55482754] 2.444485274193128 1.7680883946487607
+[0.56652294 0.14       0.55636255] 0.5044261847722656 1.03283380250737
+[0.4831875  0.14       0.43610832] 2.6640392032367317 0.9150393394765588
+[0.54429434 0.14       0.47444985] 2.556825530323535 0.36853436025537695
+[0.47830067 0.14       0.46289334] 1.8602024000740882 0.9662594428673079
+[0.53456699 0.14       0.56287243] 1.0043559179929364 2.9275901699542315
+[0.51090479 0.14       0.47910601] 3.0155023022248315 2.5324982893153436
+[0.52866533 0.14       0.55371139] 0.9235391992414083 0.3767732675509993
+[0.49159491 0.14       0.45104392] 1.2737484587140844 1.5732232951554992
+[0.50906566 0.14       0.50099611] 2.602843035757307 0.16790389642028242
+[0.43851694 0.14       0.42578972] 3.0174162443409793 2.7053174882017563
+[0.57917759 0.14       0.51362235] 1.72373789805727 0.8178478781381987
+[0.54930865 0.14       0.52991417] 0.6340344235875567 2.79581368421227
+[0.45121879 0.14       0.50010921] 0.36597240283302285 1.8874380095079921
+[0.45852317 0.14       0.50931416] 0.5414441849205711 2.490134792890471
+[0.57516305 0.14       0.51126512] 1.2453371457148805 1.8072497601989204
+[0.54768557 0.14       0.51788108] 2.860609626691051 2.9798426164193903
+[0.43272319 0.14       0.5768522 ] 2.3287768902379726 2.281753254418208
+[0.43209731 0.14       0.49620478] 0.1761988085630371 1.8104406805903697
+[0.49690666 0.14       0.50113239] 0.9294812085820902 0.04095900781423089
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9601] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9603] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9605] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9607] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9609] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9611] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9613] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9615] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@100] [$9617] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:54.342] [type_check.cpp:visit@101] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$34751] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$34753] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$34755] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$34782] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$34792] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$35163] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$35165] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$35167] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$35194] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$35204] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36506] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36508] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36510] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$36537] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$36547] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36918] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36920] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$36922] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$36949] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$36959] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38261] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38263] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38265] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 93, in collide
+    dist = self.sdf(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$38292] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@70] [$38302] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38673] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38675] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@100] [$38677] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:11:57.614] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/mpm_simulator.py", line 198, in grid_op
+    v_out = self.primitives[i].collide(f, I * self.dx, v_out, self.dt)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 96, in collide
+    D = self.normal(f, grid_pos)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:11:57.621] [type_check.cpp:visit@70] [$38704] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.621] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:11:57.621] [type_check.cpp:visit@70] [$38714] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:11:57.621] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71147] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71149] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71151] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$71178] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$71188] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71541] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71543] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71545] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$71572] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$71582] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71985] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71987] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$71989] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$72016] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$72026] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$72609] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$72611] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@100] [$72613] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 455, in render_multi
+    contrib = self.trace(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 363, in trace
+    closest, normal, c, roughness, material = self.next_hit(pos, d)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$72640] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@70] [$72650] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.285] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$80784] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$80786] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$80788] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@70] [$80815] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@70] [$80825] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$81178] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$81180] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$81182] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 253, in next_hit
+    dd = ti.cast(self.primitives[i].sdf(0, pp), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 59, in sdf
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@70] [$81209] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@70] [$81219] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$81622] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@100] [$81624] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.286] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@100] [$81626] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@70] [$81653] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@70] [$81663] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.312] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.313] [type_check.cpp:visit@100] [$82246] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.313] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@100] [$82248] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@100] [$82250] Local store may lose precision (target = f32, value = f64) at
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@101] 
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 456, in render_multi
+    depth = self.next_hit(pos, d)[0]
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/renderer/renderer.py", line 264, in next_hit
+    normal = ti.cast(self.primitives[i].normal(0, o + dist * d), ti.f32)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 50, in decorated
+    return fun.__call__(*args)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/kernel_impl.py", line 122, in __call__
+    ret = self.compiled(*args)
+  File "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/engine/primitive/primive_base.py", line 79, in normal
+    grid_pos = inv_trans(grid_pos, self.position[f], self.rotation[f])
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/util.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/impl.py", line 201, in maybe_transform_ti_func_call_to_stmt
+    return func(*args, **kwargs)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/common_ops.py", line 227, in assign
+    return ti.assign(self, other)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/ops.py", line 131, in wrapped
+    return a.element_wise_writeback_binary(imp_foo, b)
+  File "/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/taichi/lang/matrix.py", line 179, in element_wise_writeback_binary
+    ret.entries[i] = foo(self.entries[i], other.entries[i])
+
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@70] [$82277] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@71] 
+
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@70] [$82287] Atomic add (f64 to f32) may lose precision, at
+[W 09/13/26 15:12:02.334] [type_check.cpp:visit@71] 
+
+state_cur: torch.Size([4, 300, 3]), state_goal: torch.Size([1, 300, 3])
+
+  0%|          | 0/5 [00:00<?, ?it/s]/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/torch/utils/checkpoint.py:25: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+
+ 20%|██        | 1/5 [00:14<00:57, 14.36s/it]
+ 40%|████      | 2/5 [00:26<00:38, 12.77s/it]
+ 60%|██████    | 3/5 [00:37<00:24, 12.32s/it]
+ 80%|████████  | 4/5 [00:49<00:12, 12.16s/it]
+100%|██████████| 5/5 [01:01<00:00, 12.01s/it]
+100%|██████████| 5/5 [01:01<00:00, 12.30s/it]
+sampling: max: -0.0320, mean: -0.0431, std: 0.0066
+Selected top reward seqs: tensor([-0.0344, -0.0339, -0.0338, -0.0323, -0.0320])
+Batch 0/5:
+reward seqs after 14 iterations: tensor([-0.0325], grad_fn=<CatBackward>)
+Batch 1/5:
+reward seqs after 17 iterations: tensor([-0.0332], grad_fn=<CatBackward>)
+Batch 2/5:
+reward seqs after 12 iterations: tensor([-0.0327], grad_fn=<CatBackward>)
+Batch 3/5:
+reward seqs after 13 iterations: tensor([-0.0311], grad_fn=<CatBackward>)
+Batch 4/5:
+reward seqs after 8 iterations: tensor([-0.0311], grad_fn=<CatBackward>)
+Loss: 0.031111838296055794
+Optimal set of params:
+mid_point: tensor([[0.5696, 0.1400, 0.4281],
+        [0.4620, 0.1400, 0.4229]])
+angle: tensor([2.5415, 0.2498], grad_fn=<SelectBackward>)
+z_angle: tensor([0., 0.], grad_fn=<SelectBackward>)
+gripper_rate: tensor([0.0106, 0.0097], grad_fn=<ClampBackward1>)
+Optimal init pose seq: tensor([[0.8998, 0.1400, 0.6540, 1.0000, 0.0000, 0.0000, 0.0000],
+        [0.0744, 0.1400, 0.5217, 1.0000, 0.0000, 0.0000, 0.0000]],
+       grad_fn=<SliceBackward>)
+INFO - 2026-09-13 15:15:12,355 - animation - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+EMD: tensor([0.0313], dtype=torch.float64)
+Chamfer: tensor([0.0405], dtype=torch.float64)
+=============== Iteration 0 -> model_loss: tensor([0.0311]); sim_loss: tensor([0.0323], dtype=torch.float64) ===============
+=============== 1/2 ===============
+[0.4552617  0.14       0.46357565] 2.509407964025823 0.555061301601468
+[0.48994422 0.14       0.43679241] 1.0485750327625174 3.130213291797251
+[0.48803742 0.14       0.50631613] 0.8642607073140026 2.9417791610780144
+[0.4682766  0.14       0.55166469] 0.7265446854033797 1.1623724707144605
+[0.57848094 0.14       0.57785692] 1.6353721393649872 0.2705931129180934
+[0.52698058 0.14       0.55553362] 1.2596811282523186 0.9946701109002019
+[0.43164486 0.14       0.45295294] 1.6067057527892115 1.1632919358047045
+[0.50291449 0.14       0.44934207] 3.1255118350476216 1.0460798712964932
+[0.56898852 0.14       0.47376442] 1.2057070504382783 0.565178180258831
+[0.44370679 0.14       0.4778692 ] 2.568616226776381 0.31320955484952673
+[0.56246451 0.14       0.49094222] 2.0163240021764053 3.003151360514677
+[0.4619167  0.14       0.46949785] 2.510452330103654 2.2234453535279455
+[0.55593261 0.14       0.54729311] 0.9064380434080824 2.145459009118028
+[0.45521209 0.14       0.42286322] 1.0399278283591644 1.3233177245471586
+[0.49163873 0.14       0.44724797] 2.425302931810054 1.214555677497375
+[0.44723233 0.14       0.55693073] 2.8911174897291794 2.9995791344676883
+[0.45100937 0.14       0.56967871] 1.1718934742588007 2.235290874274465
+[0.45021515 0.14       0.52035991] 0.9632061190072067 1.7071781891554045
+[0.55790011 0.14       0.53515665] 1.776970896971786 2.266858600005108
+[0.44103521 0.14       0.55545095] 0.5446409197696442 2.586488952115645
+[0.504757   0.14       0.43616207] 1.9937852277642063 1.0082843029704207
+[0.48865594 0.14       0.47971207] 0.4788747293441867 0.13432548537922753
+[0.5502487  0.14       0.42287519] 2.3956482282019196 0.258654965758336
+[0.57740185 0.14       0.52726525] 2.7954235749166676 0.2798914604806504
+[0.45729535 0.14       0.5747623 ] 2.3556519286179527 1.791806777552505
+[0.42166211 0.14       0.54387762] 1.2045484460722695 0.6187214676528346
+[0.4396881  0.14       0.45632913] 1.9344967135744133 2.4175536206186186
+[0.52060797 0.14       0.56567696] 1.2745734322616626 2.8746408761904143
+[0.5051414  0.14       0.55607084] 0.4218396893711441 0.3257144634931388
+[0.54541512 0.14       0.43770359] 2.100148151153649 1.3013391030654962
+[0.42185239 0.14       0.56519653] 0.14213073988237382 0.42784446138272025
+[0.47807133 0.14       0.54281884] 0.7938675474176597 2.9455697104900285
+[0.53335808 0.14       0.43488874] 2.8204494453097624 0.44852479364404413
+[0.43444007 0.14       0.57618058] 2.6986922870838224 1.1694273489374347
+[0.47977568 0.14       0.51245783] 0.13354644912197727 1.160180695644689
+[0.42220089 0.14       0.53366301] 1.9076179311335066 2.6488264210822074
+[0.50300842 0.14       0.45949982] 2.600651371009602 0.549262421267627
+[0.54361148 0.14       0.49660325] 2.4017218722467826 2.6559647588747013
+[0.46554609 0.14       0.51795835] 0.6710822527680451 2.742161438709011
+[0.45867085 0.14       0.52559919] 0.1940076111968479 1.0471698493537163
+[0.57830414 0.14       0.50292697] 0.1860175044253073 1.2500021934364687
+[0.46252626 0.14       0.50004542] 1.2644746760950973 0.1841831041761385
+[0.53473877 0.14       0.52245191] 2.5229651404884557 1.2921245611586667
+[0.57327533 0.14       0.51154872] 2.5134727692996734 1.1069287176752085
+[0.45833808 0.14       0.48196245] 0.5830099707952053 2.580340850576819
+[0.49120498 0.14       0.49438825] 1.6880026076496175 1.6276524401217312
+[0.46247051 0.14       0.49808652] 1.9006739011092992 1.7001089170632022
+[0.55180844 0.14       0.4477081 ] 1.2649100556633985 0.7655581838379536
+[0.45719721 0.14       0.47854903] 0.6333580001284975 1.2897205041005313
+[0.43844707 0.14       0.55365655] 2.7004675779513234 2.2789149650980214
+[0.55399626 0.14       0.49743155] 0.33582591405880746 0.29368650310434535
+[0.48648151 0.14       0.55047063] 1.7844312380856029 2.0607726734843657
+[0.45290836 0.14       0.42431259] 0.5535007849053724 2.2188134359289897
+[0.42073372 0.14       0.42467682] 1.9086059428907591 1.223624047658984
+[0.55072074 0.14       0.50888605] 2.5884109385396585 3.0244046735203574
+[0.51010117 0.14       0.42013818] 1.5337960163226596 0.21312771590580676
+[0.56745536 0.14       0.49213923] 1.6061516752966862 0.8478695354660054
+[0.48447034 0.14       0.51785448] 1.6989137164472723 0.5877177592278932
+[0.52626952 0.14       0.53633073] 1.2331928468495228 0.5912450620428565
+[0.42592752 0.14       0.44243246] 2.723609716781005 0.42826656304206256
+[0.44883061 0.14       0.55349044] 0.09565083500830276 2.5024120119541076
+[0.49882897 0.14       0.57763202] 0.5936084931557484 0.6527872488443592
+[0.44243913 0.14       0.51281265] 2.241072295758784 2.923130242019472
+[0.46444441 0.14       0.50884792] 0.2136811327323552 1.502778761253108
+[0.44762137 0.14       0.54605591] 2.9317461390771333 2.6495230537356935
+[0.46422418 0.14       0.55521696] 0.3648329922251176 0.716782988490309
+[0.50853362 0.14       0.50982958] 0.06677506401078205 0.2731854272773817
+[0.4416773  0.14       0.53162815] 2.7428161043533903 2.2414613411365574
+[0.57762791 0.14       0.53501924] 1.1716071629906393 2.131798793051545
+[0.42003364 0.14       0.55571633] 1.2336178416259667 1.710817055733371
+[0.45130182 0.14       0.50422139] 0.17239807622734266 1.8272044072771092
+[0.48997018 0.14       0.44673028] 2.668296783973832 1.8383383155983724
+[0.53600955 0.14       0.46098227] 0.5600231453147895 2.5766446308709052
+[0.51627576 0.14       0.4920115 ] 0.757473840128318 2.130698350605918
+[0.52090603 0.14       0.57617342] 2.7248067275314085 2.0516790590785976
+[0.55428058 0.14       0.52491996] 0.8591300239872824 2.9224217121970746
+[0.57241792 0.14       0.48249404] 2.794634680823255 2.1397875330024374
+[0.43258339 0.14       0.52945643] 1.0387359648909102 0.10232775088118252
+[0.50673519 0.14       0.52467581] 2.9770653849565036 1.0292210838450333
+[0.53888697 0.14       0.46595344] 2.1709888618820896 1.3667235735615246
+[0.45352624 0.14       0.56983051] 2.7709100202228303 0.1328747828191335
+[0.44861741 0.14       0.42771068] 0.4489847904218357 1.3171044713915534
+[0.42996005 0.14       0.56522206] 3.12737256076207 0.15349330687943707
+[0.44759813 0.14       0.4407468 ] 0.9766070778563295 2.1894244293048972
+[0.57522311 0.14       0.5002967 ] 1.3692671794895659 0.6744852377308213
+[0.49367247 0.14       0.52390998] 1.5879920625729924 0.22402812267081462
+[0.53137256 0.14       0.49835995] 2.564577218131179 2.1171141026426197
+[0.52698405 0.14       0.44514376] 2.525684034178289 1.171613172852516
+[0.50668228 0.14       0.43162073] 0.22555030614119775 1.916768530598884
+[0.54626683 0.14       0.52229355] 3.01961016358405 0.3507091924816453
+[0.50420359 0.14       0.44657666] 1.5414865846661159 0.7836132142822099
+[0.45613073 0.14       0.49265598] 2.062764140101104 2.874777448897628
+[0.54760615 0.14       0.50692425] 2.9541347427584332 2.834510934405644
+[0.42640443 0.14       0.49071731] 2.4575875033868084 2.3125960975478725
+[0.54451901 0.14       0.55628086] 1.9553038241560965 1.872127121903104
+[0.5599536  0.14       0.57614223] 2.1561130504888997 0.6132648565770413
+[0.54088705 0.14       0.55415637] 3.0485838104328815 2.435021246377335
+[0.46901965 0.14       0.53127797] 2.66555663593426 3.0134362513824815
+[0.55749234 0.14       0.49849812] 1.8078303316251978 0.13792665755340877
+[0.54797391 0.14       0.5504495 ] 2.487063571816863 1.215413924302365
+state_cur: torch.Size([4, 300, 3]), state_goal: torch.Size([1, 300, 3])
+
+  0%|          | 0/5 [00:00<?, ?it/s]/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/torch/utils/checkpoint.py:25: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+
+ 20%|██        | 1/5 [00:12<00:49, 12.42s/it]
+ 40%|████      | 2/5 [00:24<00:36, 12.12s/it]
+ 60%|██████    | 3/5 [00:36<00:24, 12.17s/it]
+ 80%|████████  | 4/5 [00:48<00:12, 12.22s/it]
+100%|██████████| 5/5 [01:01<00:00, 12.32s/it]
+100%|██████████| 5/5 [01:01<00:00, 12.27s/it]
+sampling: max: -0.0319, mean: -0.0425, std: 0.0064
+Selected top reward seqs: tensor([-0.0349, -0.0324, -0.0323, -0.0320, -0.0319])
+Batch 0/5:
+reward seqs after 12 iterations: tensor([-0.0333], grad_fn=<CatBackward>)
+Batch 1/5:
+reward seqs after 8 iterations: tensor([-0.0303], grad_fn=<CatBackward>)
+Batch 2/5:
+reward seqs after 10 iterations: tensor([-0.0300], grad_fn=<CatBackward>)
+Batch 3/5:
+reward seqs after 10 iterations: tensor([-0.0303], grad_fn=<CatBackward>)
+Batch 4/5:
+reward seqs after 9 iterations: tensor([-0.0299], grad_fn=<CatBackward>)
+Loss: 0.029871424660086632
+Optimal set of params:
+mid_point: tensor([[0.4424, 0.1400, 0.5128],
+        [0.4644, 0.1400, 0.5088]])
+angle: tensor([2.2411, 0.2137], grad_fn=<SelectBackward>)
+z_angle: tensor([0., 0.], grad_fn=<SelectBackward>)
+gripper_rate: tensor([0.0098, 0.0097], grad_fn=<ClampBackward1>)
+Optimal init pose seq: tensor([[0.6909, 0.1400, 0.8263, 1.0000, 0.0000, 0.0000, 0.0000],
+        [0.0735, 0.1400, 0.5937, 1.0000, 0.0000, 0.0000, 0.0000]],
+       grad_fn=<SliceBackward>)
+INFO - 2026-09-13 15:18:08,144 - animation - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+EMD: tensor([0.0351], dtype=torch.float64)
+Chamfer: tensor([0.0444], dtype=torch.float64)
+=============== Iteration 1 -> model_loss: tensor([0.0299]); sim_loss: tensor([0.0361], dtype=torch.float64) ===============
+=============== 1/2 ===============
+[0.48455551 0.14       0.57585844] 0.9414229500223495 2.37340309030275
+[0.44890185 0.14       0.49122901] 2.9209229411274906 2.14949037475049
+[0.55058057 0.14       0.57686533] 1.1997511690728462 1.0842420004062652
+[0.48791617 0.14       0.54615136] 2.022592653904683 2.5324050129587503
+[0.56838433 0.14       0.44414863] 0.9058133317567458 1.9081462712384247
+[0.45711357 0.14       0.57823941] 1.9288908424511793 0.31971640719254163
+[0.50752887 0.14       0.4539071 ] 1.0043134620806873 0.801307338620211
+[0.51399881 0.14       0.52329718] 1.6453004699972729 1.2806179886049567
+[0.56360644 0.14       0.43400266] 2.734418904523768 1.255981107263754
+[0.52329852 0.14       0.43029382] 2.775590928639857 3.1054688587477988
+[0.4452377 0.14      0.4592564] 0.08618094403904875 1.447274074286937
+[0.55005427 0.14       0.53380367] 2.6852817519282626 1.5616565242130527
+[0.5712414  0.14       0.54467787] 2.8814972123866163 1.6824352005797116
+[0.47974421 0.14       0.50136808] 0.07768879412616345 0.521238250907269
+[0.54368991 0.14       0.50243059] 3.1011050706079337 3.0823134992307293
+[0.5669589  0.14       0.43483734] 0.8157883620448615 1.6489408667631271
+[0.53662609 0.14       0.47549106] 0.002015436231901687 2.7965167264361614
+[0.48887671 0.14       0.56895012] 2.302887375357406 1.2235477692218688
+[0.47551626 0.14       0.50159751] 2.026693285092634 2.685383257134044
+[0.56340862 0.14       0.42601203] 2.8640392154595458 1.6135633288928688
+[0.47424267 0.14       0.42106598] 1.6337700809135236 2.676226141628797
+[0.51232718 0.14       0.4498733 ] 0.32768514726746606 1.8670877770271554
+[0.42797015 0.14       0.42819321] 0.7186618769150773 0.5648472751520497
+[0.46529606 0.14       0.54121608] 0.8639460683282055 0.9745029529784018
+[0.42382046 0.14       0.45574147] 2.9747598506375397 2.0550268786844144
+[0.51790195 0.14       0.51532623] 1.6497271886560592 1.4152434407196863
+[0.42748599 0.14       0.44417886] 0.83435481082297 0.46990913105643445
+[0.48871545 0.14       0.4484377 ] 0.6432001924019244 1.1529516645416622
+[0.46836907 0.14       0.53561858] 2.0350191400273534 1.107666594344219
+[0.46762809 0.14       0.57396167] 0.7698711046651351 1.3550281491042637
+[0.51177019 0.14       0.52390184] 2.6664866556954783 3.0162097642998424
+[0.46218095 0.14       0.48495381] 2.3382861711826077 1.788057472469649
+[0.57113225 0.14       0.50319194] 0.9487488002442752 1.0607972900692364
+[0.42542146 0.14       0.42934572] 0.04187566933342994 0.11051300996953467
+[0.42069116 0.14       0.4954476 ] 2.117935474358147 2.445314360909468
+[0.51856512 0.14       0.47253033] 0.37473460245101287 1.6470099872640378
+[0.49344177 0.14       0.46168012] 1.583594729885916 1.3152463209301866
+[0.51248758 0.14       0.56647994] 2.9658585478971697 2.8230791529242083
+[0.56797515 0.14       0.55252357] 2.3220414270684757 0.21128776595136156
+[0.55382376 0.14       0.47516546] 2.1934131058884367 0.3528839137102082
+[0.54061103 0.14       0.50069738] 0.17774451974863442 2.826543463027988
+[0.53370892 0.14       0.5162357 ] 1.0867180243779189 0.8871777010861926
+[0.44290231 0.14       0.55753377] 2.2237344414015046 1.2693151410819992
+[0.57094312 0.14       0.50509058] 1.1393114232411496 1.0627627714772454
+[0.49873364 0.14       0.46195107] 3.020943255169171 0.20468446298987295
+[0.57107434 0.14       0.45986293] 2.3336651281591436 2.466877818204662
+[0.45205083 0.14       0.54838474] 0.5723791656951569 0.7633728681943066
+[0.52669869 0.14       0.48233106] 1.4718288747440726 2.010696401038588
+[0.56380506 0.14       0.49087769] 0.5482440844371744 1.5128027545027882
+[0.46276728 0.14       0.50746121] 1.3842879193547857 2.6426406475381583
+[0.45652038 0.14       0.47927297] 2.917144322921757 3.0368431163250653
+[0.57534053 0.14       0.45965248] 0.8774738984271807 1.127804728182866
+[0.57833803 0.14       0.46566354] 2.058279479194923 2.6951006964466715
+[0.54227287 0.14       0.4480534 ] 1.9460535201215203 1.8347830097942148
+[0.48758634 0.14       0.4278219 ] 0.9532118532083956 2.8703035704178586
+[0.49445222 0.14       0.52605755] 1.1213299327254433 1.0414000448513292
+[0.51013341 0.14       0.5776213 ] 1.3244938307147454 2.4450111736345237
+[0.56116045 0.14       0.48986836] 1.2534635936865797 0.9684500933806761
+[0.54092149 0.14       0.42455984] 0.40196249669912765 1.8426777963105305
+[0.49393564 0.14       0.47967196] 0.6929362078933425 0.07446022752928652
+[0.5536052  0.14       0.50667714] 0.589176017152215 2.7975825245279413
+[0.45127023 0.14       0.44755576] 0.6891998984157085 0.37524718180933525
+[0.49315804 0.14       0.53735319] 1.991881406954928 1.738972537303712
+[0.54560666 0.14       0.4885122 ] 2.636196876609546 1.1925217396998937
+[0.476904   0.14       0.50608348] 0.6303889002375255 2.7650139800162448
+[0.46649272 0.14       0.54041914] 0.5171458093890554 1.8584624971185828
+[0.48865162 0.14       0.43395621] 0.6082712580738592 2.410206697330875
+[0.50100436 0.14       0.52066859] 1.621884264294533 0.267289544993914
+[0.50500744 0.14       0.47030931] 0.8487657086754086 1.5578712506550267
+[0.56178647 0.14       0.46885014] 0.277113762358905 2.8766694027325563
+[0.50159934 0.14       0.46134961] 3.052365602246508 3.005938837153159
+[0.57007883 0.14       0.44141976] 2.2492666946350552 3.1071112035534925
+[0.45216715 0.14       0.57399102] 0.19308964361570602 3.0659607082950644
+[0.50042455 0.14       0.54216314] 1.5383807035746422 2.563301109318573
+[0.57389452 0.14       0.50898032] 0.528662455128098 1.277840655038748
+[0.57155622 0.14       0.49306148] 0.8843480290624344 2.9633483711887405
+[0.51637848 0.14       0.54343694] 2.6055072123411542 1.3527646873116683
+[0.47094333 0.14       0.47070298] 1.2808345470524258 3.054592143011977
+[0.44348969 0.14       0.57860273] 2.238592529360858 3.0628917579598505
+[0.52639255 0.14       0.48719527] 1.0472852159191626 2.933717452588338
+[0.47630724 0.14       0.47607536] 1.912014686538699 0.6174444593331357
+[0.54987404 0.14       0.5008841 ] 1.247873869802677 0.76104519674688
+[0.55578255 0.14       0.57767876] 1.9008711024690732 0.7713773802820378
+[0.52081406 0.14       0.42725623] 1.6363630034199557 0.8673821092495286
+[0.54096595 0.14       0.53958195] 1.0042800349448378 1.4961461099909814
+[0.51185794 0.14       0.57569313] 2.5926677325468095 2.1287526501735883
+[0.43846053 0.14       0.53448157] 0.019225068879143225 0.9071468089613743
+[0.52872009 0.14       0.42896759] 0.20088677401618288 3.049389308763041
+[0.51026831 0.14       0.44877968] 0.08112985749812249 1.89168080464009
+[0.48821805 0.14       0.57603265] 2.258381403924718 0.4161751942865868
+[0.44261245 0.14       0.45499245] 1.3917318239470167 0.07548934287937101
+[0.5462929 0.14      0.4976632] 1.3083023660455637 0.03334418772238511
+[0.42538773 0.14       0.51938302] 1.0199151413157692 2.145370635658297
+[0.51435498 0.14       0.56484395] 2.8801492863737903 0.7189190208673287
+[0.55821284 0.14       0.49461413] 0.6814281825844211 0.5122141794302002
+[0.53591927 0.14       0.55929899] 2.4127266377610512 2.1366397196840783
+[0.47248486 0.14       0.46442915] 0.8128152410405559 2.391770532168525
+[0.46939983 0.14       0.5418145 ] 2.018894012693584 2.828494433716839
+[0.54679431 0.14       0.43602995] 2.8772365419121395 0.9866607044791985
+[0.49993788 0.14       0.48336059] 1.1460245097388968 3.0655054447059857
+state_cur: torch.Size([4, 300, 3]), state_goal: torch.Size([1, 300, 3])
+
+  0%|          | 0/5 [00:00<?, ?it/s]/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/torch/utils/checkpoint.py:25: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+
+ 20%|██        | 1/5 [00:12<00:48, 12.11s/it]
+ 40%|████      | 2/5 [00:23<00:35, 11.92s/it]
+ 60%|██████    | 3/5 [00:36<00:24, 12.08s/it]
+ 80%|████████  | 4/5 [00:47<00:11, 11.92s/it]
+100%|██████████| 5/5 [00:59<00:00, 11.78s/it]
+100%|██████████| 5/5 [00:59<00:00, 11.87s/it]
+sampling: max: -0.0363, mean: -0.0453, std: 0.0060
+Selected top reward seqs: tensor([-0.0378, -0.0378, -0.0374, -0.0372, -0.0363])
+Batch 0/5:
+reward seqs after 23 iterations: tensor([-0.0376], grad_fn=<CatBackward>)
+Batch 1/5:
+reward seqs after 12 iterations: tensor([-0.0364], grad_fn=<CatBackward>)
+Batch 2/5:
+reward seqs after 12 iterations: tensor([-0.0360], grad_fn=<CatBackward>)
+Batch 3/5:
+reward seqs after 15 iterations: tensor([-0.0357], grad_fn=<CatBackward>)
+Batch 4/5:
+reward seqs after 13 iterations: tensor([-0.0364], grad_fn=<CatBackward>)
+Loss: 0.03570421785116196
+Optimal set of params:
+mid_point: tensor([[0.4238, 0.1400, 0.4557],
+        [0.5179, 0.1400, 0.5153]])
+angle: tensor([2.9748, 1.6497], grad_fn=<SelectBackward>)
+z_angle: tensor([0., 0.], grad_fn=<SelectBackward>)
+gripper_rate: tensor([0.0103, 0.0097], grad_fn=<ClampBackward1>)
+Optimal init pose seq: tensor([[0.8183, 0.1400, 0.5222, 1.0000, 0.0000, 0.0000, 0.0000],
+        [0.5494, 0.1400, 0.9141, 1.0000, 0.0000, 0.0000, 0.0000]],
+       grad_fn=<SliceBackward>)
+INFO - 2026-09-13 15:21:58,142 - animation - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+EMD: tensor([0.0399], dtype=torch.float64)
+Chamfer: tensor([0.0476], dtype=torch.float64)
+=============== Iteration 2 -> model_loss: tensor([0.0357]); sim_loss: tensor([0.0407], dtype=torch.float64) ===============
+=============== 1/2 ===============
+[0.53378543 0.14       0.45807628] 3.0826451956325593 2.186684045041304
+[0.47073697 0.14       0.55723605] 0.039475683486855075 1.936199036122683
+[0.49608599 0.14       0.4620273 ] 2.6419066803086575 1.1377078134594831
+[0.49999586 0.14       0.49891037] 0.9399926754961178 1.5571730145353664
+[0.5177649  0.14       0.42445949] 2.903137466267484 1.854561069746197
+[0.57025142 0.14       0.45473609] 0.1944613502419942 0.23802771878904275
+[0.46214687 0.14       0.57724498] 1.6569574459053757 2.8026752423286196
+[0.48274772 0.14       0.51154566] 0.3185725151592684 0.5104910658657269
+[0.51020649 0.14       0.56411106] 0.039116586292921814 2.1473988011106186
+[0.57877449 0.14       0.45327584] 2.388185628763281 0.06373878687388733
+[0.47457133 0.14       0.45569821] 0.22900443134003043 1.2343887426423483
+[0.49265868 0.14       0.51283207] 1.9807962037765388 0.5430965338468238
+[0.44381962 0.14       0.4762027 ] 1.6119589675478188 1.8970037838406046
+[0.53331826 0.14       0.45423999] 1.2433802596639747 1.5924254672200586
+[0.43812439 0.14       0.42212985] 1.1148815489616282 2.3045145125902704
+[0.49849791 0.14       0.42193399] 2.911718907505658 0.6794817666109392
+[0.53803093 0.14       0.53652387] 1.9602506974476221 0.3997272040012211
+[0.50454661 0.14       0.57268166] 1.4526613686825187 0.46255627192619947
+[0.4445615  0.14       0.54864256] 0.20696305410449853 1.9240147393057294
+[0.43098443 0.14       0.48728712] 2.7804404457234173 0.16151571885719046
+[0.55621664 0.14       0.56218346] 1.2619060437526326 0.425089416216577
+[0.42506905 0.14       0.42443242] 2.1198218204407495 1.186241292700313
+[0.55875728 0.14       0.53926446] 0.7123775384421279 0.03176952219437624
+[0.54038176 0.14       0.57882093] 0.7388125460950847 3.0870303049717847
+[0.43385872 0.14       0.47022834] 2.712193691032905 0.40835295741175903
+[0.50628114 0.14       0.434437  ] 2.5129455870283945 1.7086934384218273
+[0.51513224 0.14       0.54404793] 1.6110662711731492 0.4004411068186705
+[0.52883869 0.14       0.47104688] 2.4310093745308885 0.44439133746352266
+[0.46970611 0.14       0.50980629] 0.8384612557221889 0.22509082887712367
+[0.57431337 0.14       0.53939768] 3.1169925468109665 2.4502779080662447
+[0.50186471 0.14       0.57752789] 0.5761862154224713 2.525127579707361
+[0.44638987 0.14       0.54719522] 2.4639668138198214 1.1220605968426305
+[0.4404519  0.14       0.46743702] 2.618307338667706 1.8724238242463211
+[0.45156068 0.14       0.55405822] 0.23328191341634283 0.30387706682776133
+[0.46698442 0.14       0.56709761] 1.417968458190404 0.6137043227508249
+[0.46640818 0.14       0.47114319] 0.12383244777498144 3.069102357734162
+[0.51064585 0.14       0.42445223] 0.18313869347965014 1.8977182558802137
+[0.47220156 0.14       0.43844426] 3.1378500368116935 2.5381342163904717
+[0.49260009 0.14       0.456909  ] 2.626635940451872 3.136584334411579
+[0.51352716 0.14       0.48259639] 1.8963010323800866 3.0424741432896925
+[0.57687036 0.14       0.4873138 ] 2.3359268379814773 2.344645743988681
+[0.55615891 0.14       0.45342244] 1.45753272735988 1.7587143019651752
+[0.56873714 0.14       0.57858875] 2.1852796184319963 1.7836351481071355
+[0.42798405 0.14       0.50162023] 0.3646938200304736 0.3698197602102106
+[0.46441069 0.14       0.47305387] 2.4454693871302204 2.5722651141191757
+[0.5226363  0.14       0.47223688] 2.4597816755301447 2.3751040415048235
+[0.52773534 0.14       0.52016444] 1.3436562948793838 0.846470594218134
+[0.42454353 0.14       0.43614603] 1.7328678015990677 1.3778301898971728
+[0.45975826 0.14       0.46409527] 1.5279661159814377 1.5293005171877716
+[0.55515411 0.14       0.56703597] 2.9238706676597785 1.6937803868505819
+[0.42019084 0.14       0.47891674] 0.7876517121866777 0.6368845412576889
+[0.44694568 0.14       0.53861895] 2.4498087912814386 0.42889643058913424
+[0.49688878 0.14       0.55614161] 1.9949900863803038 0.24980103461045577
+[0.54220246 0.14       0.52642494] 0.9854942243551198 0.47671842795051395
+[0.45972707 0.14       0.45247849] 0.7132415407465599 0.5641773172490047
+[0.53166079 0.14       0.54884097] 0.7280597886278757 0.8846451756430224
+[0.51446881 0.14       0.46839123] 1.803123837099378 1.388521880789027
+[0.5744131  0.14       0.44645544] 0.7752959523704912 0.42134726559798186
+[0.48889071 0.14       0.47550873] 2.8316545225222733 1.7873253910388287
+[0.52761625 0.14       0.45285562] 1.5868803031653125 2.7263363816082387
+[0.42718763 0.14       0.48423302] 3.121864750041033 2.442865818935767
+[0.50977869 0.14       0.42609321] 0.5738342723634807 0.6487140955154501
+[0.49694606 0.14       0.46914868] 0.566671499876252 2.0854510313822066
+[0.43609688 0.14       0.47286822] 1.6262862163973797 2.8382697765641414
+[0.47851753 0.14       0.51377519] 2.0321323160680858 1.7644877903392382
+[0.51701189 0.14       0.52371598] 0.3958649995646401 0.19396238036241426
+[0.42488046 0.14       0.47908843] 0.954514826868315 0.21174124049793014
+[0.45523437 0.14       0.50227215] 1.2762416209575376 2.6060720570299813
+[0.49675018 0.14       0.50913411] 2.2458027990926857 3.028410570620421
+[0.46773208 0.14       0.56506441] 2.4789377356655247 0.026351927078419782
+[0.5734821  0.14       0.45579133] 1.583661857476618 0.6610472083150002
+[0.45187374 0.14       0.46427476] 2.4106886387429385 0.27082900664549175
+[0.46515732 0.14       0.56176891] 0.7385227275823539 0.0928810139714794
+[0.49787285 0.14       0.48464843] 2.3572390181526957 2.4457832770794368
+[0.47268517 0.14       0.52223429] 0.5080513507421222 2.079741660208963
+[0.46718335 0.14       0.48542671] 2.2075024849464056 0.6219605970540224
+[0.47326827 0.14       0.50822946] 1.6863999200798847 0.4734554831258607
+[0.51478811 0.14       0.52601323] 1.9354260772274063 0.6286964083991581
+[0.53504627 0.14       0.53143823] 2.437746382033478 0.4633213108541789
+[0.53548362 0.14       0.56570583] 1.3379405275399279 0.5285439024321079
+[0.51345637 0.14       0.53668343] 0.6443084417639867 2.7423180168001746
+[0.45247013 0.14       0.45886314] 1.3276120192539402 0.3591492514244166
+[0.55148081 0.14       0.54033513] 0.607586057277693 2.545383219708972
+[0.53104204 0.14       0.43543059] 2.384078905072001 0.23175519579070059
+[0.55490781 0.14       0.54902758] 2.9215442365297513 0.16087000832134984
+[0.57618793 0.14       0.43674404] 1.1422966488262811 0.5371555043286148
+[0.54907846 0.14       0.47564714] 0.5935592995461076 2.3206856243212712
+[0.49465055 0.14       0.5296085 ] 0.01374027778451006 2.0599743658579097
+[0.51958596 0.14       0.43534656] 2.313755136596678 0.5716637327189438
+[0.4753846  0.14       0.46928035] 0.32357718186463796 2.780816777709816
+[0.54228363 0.14       0.55948851] 1.9733179939688694 1.3614835125773213
+[0.49374938 0.14       0.55710309] 1.761722321348464 2.9415115418733393
+[0.51784107 0.14       0.55477742] 1.2796381313101106 2.012649574037554
+[0.50228218 0.14       0.52048561] 2.5947203388035116 1.025658630689688
+[0.47319186 0.14       0.43602435] 0.5797948273984722 2.6619690589609557
+[0.49939483 0.14       0.4760055 ] 1.1417984612416108 1.2014089864647874
+[0.57013101 0.14       0.56892182] 1.5187267371607807 0.0957456135167588
+[0.51853917 0.14       0.57199236] 2.4228482464127854 0.8452474692082406
+[0.45079617 0.14       0.44524342] 1.3598230575253396 0.6803289175107109
+[0.43546009 0.14       0.50324506] 0.00868416652485224 1.322073567058197
+state_cur: torch.Size([4, 300, 3]), state_goal: torch.Size([1, 300, 3])
+
+  0%|          | 0/5 [00:00<?, ?it/s]/home/seohy/miniconda3/envs/robocraft/lib/python3.8/site-packages/torch/utils/checkpoint.py:25: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+
+ 20%|██        | 1/5 [00:12<00:50, 12.61s/it]
+ 40%|████      | 2/5 [00:24<00:37, 12.41s/it]
+ 60%|██████    | 3/5 [00:37<00:25, 12.51s/it]
+ 80%|████████  | 4/5 [00:50<00:12, 12.52s/it]
+100%|██████████| 5/5 [01:02<00:00, 12.49s/it]
+100%|██████████| 5/5 [01:02<00:00, 12.50s/it]
+sampling: max: -0.0384, mean: -0.0514, std: 0.0086
+Selected top reward seqs: tensor([-0.0417, -0.0404, -0.0395, -0.0393, -0.0384])
+Batch 0/5:
+reward seqs after 8 iterations: tensor([-0.0421], grad_fn=<CatBackward>)
+Batch 1/5:
+reward seqs after 11 iterations: tensor([-0.0375], grad_fn=<CatBackward>)
+Batch 2/5:
+reward seqs after 9 iterations: tensor([-0.0396], grad_fn=<CatBackward>)
+Batch 3/5:
+reward seqs after 10 iterations: tensor([-0.0380], grad_fn=<CatBackward>)
+Batch 4/5:
+reward seqs after 10 iterations: tensor([-0.0373], grad_fn=<CatBackward>)
+Loss: 0.03732214868068695
+Optimal set of params:
+mid_point: tensor([[0.5515, 0.1400, 0.5403],
+        [0.5310, 0.1400, 0.4354]])
+angle: tensor([0.6076, 2.3841], grad_fn=<SelectBackward>)
+z_angle: tensor([0., 0.], grad_fn=<SelectBackward>)
+gripper_rate: tensor([0.0096, 0.0101], grad_fn=<ClampBackward1>)
+Optimal init pose seq: tensor([[0.2231, 0.1400, 0.7687, 1.0000, 0.0000, 0.0000, 0.0000],
+        [0.8217, 0.1400, 0.7103, 1.0000, 0.0000, 0.0000, 0.0000]],
+       grad_fn=<SliceBackward>)
+=============== 2/2 ===============
+[0.43610308 0.14       0.50228645] 3.059260261494429 2.5228590560821127
+[0.48965826 0.14       0.53756822] 1.9487395306409239 2.5407529647764373
+[0.44722904 0.14       0.45729145] 1.452926618824707 1.6368076664438904
+[0.49050455 0.14       0.48816603] 0.0022911220848462212 2.324982851348845
+[0.54131962 0.14       0.42792104] 0.17602573511898517 1.583828740552374
+[0.5375767  0.14       0.55157111] 2.6117333242570897 1.5352584896097463
+[0.46528203 0.14       0.53866467] 2.313381487894416 1.1216002266407799
+[0.48312725 0.14       0.52221192] 2.0492907250911148 2.382564553592439
+[0.46983936 0.14       0.54976207] 1.99093464669829 0.050177036596225945
+[0.57691852 0.14       0.49808365] 2.826967921074315 1.5236372907674973
+[0.54166785 0.14       0.50064656] 2.1229101703145377 2.3969871483480403
+[0.44464307 0.14       0.46775725] 1.98455615234016 0.03438549475305699
+[0.47093274 0.14       0.53933646] 0.30434840544360503 0.694481652672205
+[0.54824875 0.14       0.43929177] 2.0646827679975894 2.428832074111959
+[0.43999143 0.14       0.53428291] 2.0799588240633318 2.047683591389045
+[0.5321357  0.14       0.42245464] 0.10443962891984288 0.26223710735607403
+[0.49090582 0.14       0.49852824] 1.51478165429648 0.8290989421822099
+[0.46127614 0.14       0.42308389] 0.14768983948732095 0.4699028254378301
+[0.54489728 0.14       0.52486538] 2.761515117836325 2.262777473380934
+[0.53186625 0.14       0.52543085] 1.7841405446948342 2.0250793300396666
+[0.53021155 0.14       0.51840358] 2.2700574698360128 0.704479278171699
+[0.53759961 0.14       0.53660326] 2.6683175444347063 0.7936619113347453
+[0.55579081 0.14       0.4201152 ] 1.6577425063695799 1.7993257018990771
+[0.46042814 0.14       0.5439108 ] 1.6223640689036318 2.0578726161852012
+[0.52954522 0.14       0.44142011] 0.1738002782117717 1.9143592159204752
+[0.55361005 0.14       0.53647042] 1.4033769857564746 0.38060518022262135
+[0.57352156 0.14       0.42719599] 1.896098393937628 1.2116445879701534
+[0.47831896 0.14       0.48703317] 0.06446994976424732 2.498003420056361
+[0.53665127 0.14       0.44387704] 0.7945804505887991 0.5141656024984564
+[0.42059183 0.14       0.4435969 ] 2.0364850018067604 0.4471792737963103
+[0.44345621 0.14       0.47287041] 2.9567094642808542 2.5947584051123025
+[0.43514386 0.14       0.50479069] 0.8347815824747293 0.9246258733517552
+[0.45500635 0.14       0.4876281 ] 1.8495807888741007 1.811178153014365
+[0.43381027 0.14       0.4437331 ] 2.4791763050306934 2.722543247473636
+[0.57998056 0.14       0.56698263] 2.4802580027850807 0.032195662965672604
+[0.43683462 0.14       0.53919173] 0.25542987957825686 1.153187395353003
+[0.57234862 0.14       0.55072301] 1.4675855070035297 2.695063405825328
+[0.5455536  0.14       0.54629123] 1.946406600174347 0.30786745915362573
+[0.51538439 0.14       0.42775472] 1.9841307599524014 1.3997225679783791
+[0.56154694 0.14       0.45517106] 1.3532672309742964 0.4907132804933486
+[0.52124064 0.14       0.4278701 ] 1.0369442227635395 1.914538824919497
+[0.45705384 0.14       0.52669912] 1.9764955538940527 2.081964734604372
+[0.5599058  0.14       0.44640272] 1.6499284030509913 1.9614566426190922
+[0.49831613 0.14       0.43687034] 2.9832102671436824 2.427770995834568
+[0.52296703 0.14       0.52941967] 0.7143670628556701 0.38976352269900305
+[0.46454609 0.14       0.4627111 ] 1.0027859332030697 2.499120261826795
+[0.43120304 0.14       0.42515921] 1.2884069172082127 2.5344241346182406
+[0.4549445  0.14       0.52112226] 2.9172048969657034 0.023926616715773556
+[0.50204794 0.14       0.45346293] 1.9946605158629147 0.7398294033079262
+[0.51739662 0.14       0.55906508] 1.3301984182496585 1.996920861435871
+state_cur: torch.Size([4, 300, 3]), state_goal: torch.Size([1, 300, 3])
+
+  0%|          | 0/5 [00:00<?, ?it/s]
+ 20%|██        | 1/5 [00:05<00:22,  5.65s/it]
+ 40%|████      | 2/5 [00:11<00:16,  5.58s/it]
+ 60%|██████    | 3/5 [00:16<00:11,  5.67s/it]
+ 80%|████████  | 4/5 [00:22<00:05,  5.73s/it]
+100%|██████████| 5/5 [00:28<00:00,  5.66s/it]
+100%|██████████| 5/5 [00:28<00:00,  5.66s/it]
+sampling: max: -0.0373, mean: -0.0446, std: 0.0030
+Selected top reward seqs: tensor([-0.0406, -0.0405, -0.0399, -0.0396, -0.0373])
+Batch 0/5:
+reward seqs after 11 iterations: tensor([-0.0401], grad_fn=<CatBackward>)
+Batch 1/5:
+reward seqs after 10 iterations: tensor([-0.0403], grad_fn=<CatBackward>)
+Batch 2/5:
+reward seqs after 8 iterations: tensor([-0.0403], grad_fn=<CatBackward>)
+Batch 3/5:
+reward seqs after 14 iterations: tensor([-0.0388], grad_fn=<CatBackward>)
+Batch 4/5:
+reward seqs after 27 iterations: tensor([-0.0383], grad_fn=<CatBackward>)
+Loss: 0.03829267621040344
+Optimal set of params:
+mid_point: tensor([[0.5735, 0.1400, 0.4271]])
+angle: tensor([1.8961], grad_fn=<SelectBackward>)
+z_angle: tensor([0.], grad_fn=<SelectBackward>)
+gripper_rate: tensor([0.0106], grad_fn=<ClampBackward1>)
+Optimal init pose seq: tensor([[0.7013, 0.1400, 0.8061, 1.0000, 0.0000, 0.0000, 0.0000]],
+       grad_fn=<SliceBackward>)
+INFO - 2026-09-13 15:27:02,170 - animation - Animation.save using <class 'matplotlib.animation.PillowWriter'>
+EMD: tensor([0.0471], dtype=torch.float64)
+Chamfer: tensor([0.0501], dtype=torch.float64)
+=============== Iteration 3 -> model_loss: tensor([0.0383]); sim_loss: tensor([0.0474], dtype=torch.float64) ===============
+torch.Size([2, 11, 14]) torch.Size([2, 40, 12])
+Best init pose: tensor([[0.8998, 0.1400, 0.6540, 1.0000, 0.0000, 0.0000, 0.0000],
+        [0.0744, 0.1400, 0.5217, 1.0000, 0.0000, 0.0000, 0.0000]])
+Best model loss: tensor([0.0311]); Best sim loss: tensor([0.0323], dtype=torch.float64)

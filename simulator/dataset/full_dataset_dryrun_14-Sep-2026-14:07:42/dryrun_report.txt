@@ -1,0 +1,165 @@
+[Dry-run configuration]
+
+materials: E=5000 nu=0.2 sigma_y=[30.0, 200.0, 500.0, 900.0]
+sequences: ['paired_dryrun_000', 'random_sigma500_dryrun_000']
+episodes: 5  grips: 25
+master seed: 20260914  (SeedSequence([master_seed, mode(dry-run 0/full 1), kind(paired 0/random 1), sigma or 0, index]).generate_state(1)[0])
+  paired_dryrun_000: seed 261206391 hash 880a0880b3693df10c2263f58e00386168127589192cc633b278c13cfaa9d989 regen-from-seed max error 0.0
+    grip0 mid (0.4879, 0.14, 0.5058) angle   55.0 (d_axis   -  ) gap 0.1030 rate 0.010116 pin_analytic +0.0151 pin_rejects 0 axis_resamples 0
+    grip1 mid (0.5058, 0.14, 0.5196) angle   95.1 (d_axis  40.1) gap 0.1007 rate 0.010155 pin_analytic +0.0054 pin_rejects 0 axis_resamples 0
+    grip2 mid (0.4964, 0.14, 0.4700) angle  156.8 (d_axis  61.7) gap 0.0917 rate 0.010306 pin_analytic +0.0101 pin_rejects 0 axis_resamples 0
+    grip3 mid (0.5030, 0.14, 0.4722) angle   19.9 (d_axis  43.0) gap 0.1223 rate 0.009794 pin_analytic +0.0272 pin_rejects 0 axis_resamples 0
+    grip4 mid (0.5215, 0.14, 0.4860) angle   88.7 (d_axis  68.8) gap 0.1023 rate 0.010128 pin_analytic +0.0144 pin_rejects 1 axis_resamples 0
+  random_sigma500_dryrun_000: seed 366592865 hash ce51425fcd533f1c01ce73d715f462f69878957f9b3762fe59f1047d694b3b1c regen-from-seed max error 0.0
+    grip0 mid (0.5013, 0.14, 0.5271) angle   65.2 (d_axis   -  ) gap 0.1066 rate 0.010057 pin_analytic +0.0053 pin_rejects 1 axis_resamples 0
+    grip1 mid (0.5275, 0.14, 0.4819) angle  134.1 (d_axis  68.9) gap 0.1175 rate 0.009876 pin_analytic +0.0329 pin_rejects 0 axis_resamples 0
+    grip2 mid (0.5043, 0.14, 0.5157) angle   77.8 (d_axis  56.3) gap 0.1066 rate 0.010056 pin_analytic +0.0142 pin_rejects 0 axis_resamples 0
+    grip3 mid (0.5270, 0.14, 0.4908) angle  130.0 (d_axis  52.2) gap 0.0982 rate 0.010197 pin_analytic +0.0179 pin_rejects 1 axis_resamples 0
+    grip4 mid (0.5054, 0.14, 0.4736) angle  145.5 (d_axis  15.5) gap 0.1265 rate 0.009724 pin_analytic +0.0308 pin_rejects 0 axis_resamples 0
+
+--------------------------------
+[Raw schema]
+
+array                  | shape                  | dtype
+initial_object_pos     | (20000, 3)             | float32
+rollout_object_pos     | (5, 40, 20000, 3)      | float32
+boundary_object_vel    | (6, 20000, 3)          | float32
+boundary_cloud_300     | (6, 300, 3)            | float32
+tool_pose_rollout      | (5, 40, 2, 7)          | float64
+tool_start_pose        | (5, 2, 7)              | float64
+primitive_action       | (5, 40, 12)            | float64
+high_level_action      | (5, 5)                 | float64
+midpoint               | (5, 3)                 | float64
+angle                  | (5,)                   | float64
+target_gap             | (5,)                   | float64
+actual_gap_f29         | (5,)                   | float64
+gripper_rate           | (5,)                   | float64
+finger_min_clearance   | (5, 40, 2)             | float64
+finger_contact_count   | (5, 40, 2)             | float64
+finger_pin_gap         | (5, 40, 2)             | float64
+max_step_disp          | (5, 40)                | float64
+
+--------------------------------
+[Initial-state verification]
+
+paired_dryrun_000_sigma30: full state vs settled {'x': 0.0, 'v': 0.0, 'F': 0.0, 'C': 0.0, 'prim0': 0.0, 'prim1': 0.0, 'pin': 0.0}
+paired_dryrun_000_sigma200: full state vs settled {'x': 0.0, 'v': 0.0, 'F': 0.0, 'C': 0.0, 'prim0': 0.0, 'prim1': 0.0, 'pin': 0.0}
+paired_dryrun_000_sigma500: full state vs settled {'x': 0.0, 'v': 0.0, 'F': 0.0, 'C': 0.0, 'prim0': 0.0, 'prim1': 0.0, 'pin': 0.0}
+paired_dryrun_000_sigma900: full state vs settled {'x': 0.0, 'v': 0.0, 'F': 0.0, 'C': 0.0, 'prim0': 0.0, 'prim1': 0.0, 'pin': 0.0}
+random_sigma500_dryrun_000: full state vs settled {'x': 0.0, 'v': 0.0, 'F': 0.0, 'C': 0.0, 'prim0': 0.0, 'prim1': 0.0, 'pin': 0.0}
+cross-episode initial_object_pos max error: {'paired_dryrun_000_sigma30': 0.0, 'paired_dryrun_000_sigma200': 0.0, 'paired_dryrun_000_sigma500': 0.0, 'paired_dryrun_000_sigma900': 0.0, 'random_sigma500_dryrun_000': 0.0}
+cross-episode initial 300-cloud max error: {'paired_dryrun_000_sigma30': 0.0, 'paired_dryrun_000_sigma200': 0.0, 'paired_dryrun_000_sigma500': 0.0, 'paired_dryrun_000_sigma900': 0.0, 'random_sigma500_dryrun_000': 0.0}
+
+--------------------------------
+[Paired action identity]
+
+paired_dryrun_000: episodes ['paired_dryrun_000_sigma30', 'paired_dryrun_000_sigma200', 'paired_dryrun_000_sigma500', 'paired_dryrun_000_sigma900'], high_level_action 0.0, midpoint 0.0, angle 0.0, target_gap 0.0, gripper_rate 0.0, tool_start_pose 0.0, primitive_action 0.0, hash_identical True, initial_object_pos 0.0
+
+--------------------------------
+[Material verification]
+
+paired_dryrun_000_sigma30: requested {'E': 5000.0, 'sigma_y': 30.0, 'nu': 0.2} expected {'mu': 2083.3333333333335, 'lam': 1388.888888888889, 'yield_stress': 30.0} applied {'mu': {'min': 2083.333251953125, 'max': 2083.333251953125, 'uniform': True}, 'lam': {'min': 1388.888916015625, 'max': 1388.888916015625, 'uniform': True}, 'yield_stress': {'min': 30.0, 'max': 30.0, 'uniform': True}} match True
+paired_dryrun_000_sigma200: requested {'E': 5000.0, 'sigma_y': 200.0, 'nu': 0.2} expected {'mu': 2083.3333333333335, 'lam': 1388.888888888889, 'yield_stress': 200.0} applied {'mu': {'min': 2083.333251953125, 'max': 2083.333251953125, 'uniform': True}, 'lam': {'min': 1388.888916015625, 'max': 1388.888916015625, 'uniform': True}, 'yield_stress': {'min': 200.0, 'max': 200.0, 'uniform': True}} match True
+paired_dryrun_000_sigma500: requested {'E': 5000.0, 'sigma_y': 500.0, 'nu': 0.2} expected {'mu': 2083.3333333333335, 'lam': 1388.888888888889, 'yield_stress': 500.0} applied {'mu': {'min': 2083.333251953125, 'max': 2083.333251953125, 'uniform': True}, 'lam': {'min': 1388.888916015625, 'max': 1388.888916015625, 'uniform': True}, 'yield_stress': {'min': 500.0, 'max': 500.0, 'uniform': True}} match True
+paired_dryrun_000_sigma900: requested {'E': 5000.0, 'sigma_y': 900.0, 'nu': 0.2} expected {'mu': 2083.3333333333335, 'lam': 1388.888888888889, 'yield_stress': 900.0} applied {'mu': {'min': 2083.333251953125, 'max': 2083.333251953125, 'uniform': True}, 'lam': {'min': 1388.888916015625, 'max': 1388.888916015625, 'uniform': True}, 'yield_stress': {'min': 900.0, 'max': 900.0, 'uniform': True}} match True
+random_sigma500_dryrun_000: requested {'E': 5000.0, 'sigma_y': 500.0, 'nu': 0.2} expected {'mu': 2083.3333333333335, 'lam': 1388.888888888889, 'yield_stress': 500.0} applied {'mu': {'min': 2083.333251953125, 'max': 2083.333251953125, 'uniform': True}, 'lam': {'min': 1388.888916015625, 'max': 1388.888916015625, 'uniform': True}, 'yield_stress': {'min': 500.0, 'max': 500.0, 'uniform': True}} match True
+
+--------------------------------
+[Boundary continuity]
+
+paired_dryrun_000_sigma30: object max 0.0e+00 full state max 0.0e+00 | frame39(float32) vs boundary full-state x 0.0e+00
+paired_dryrun_000_sigma200: object max 0.0e+00 full state max 0.0e+00 | frame39(float32) vs boundary full-state x 0.0e+00
+paired_dryrun_000_sigma500: object max 0.0e+00 full state max 0.0e+00 | frame39(float32) vs boundary full-state x 0.0e+00
+paired_dryrun_000_sigma900: object max 0.0e+00 full state max 0.0e+00 | frame39(float32) vs boundary full-state x 0.0e+00
+random_sigma500_dryrun_000: object max 0.0e+00 full state max 0.0e+00 | frame39(float32) vs boundary full-state x 0.0e+00
+
+--------------------------------
+[Stability]
+
+nan: 0
+inf: 0
+value_error: []
+explosion: 0
+collapse: 0
+pin_collision: 0
+weak: 1
+one_finger: 0
+min_finger_pin_distance: 0.005317874961851189
+max_step_disp: 0.01920476086844146
+height_ratio_vs_initial_min: 1.132061559803902
+
+episode                          g   gap    ang    comp   resid  nres     pin     clr     contact h_ratio class
+paired_dryrun_000_sigma30        0 0.103   55.0  0.0271  0.0334  1.23 +0.0151 -0.0121  [489, 575]   1.132 GOOD
+paired_dryrun_000_sigma30        1 0.101   95.1  0.0227  0.0284  1.26 +0.0054 -0.0126  [287, 530]   1.226 GOOD
+paired_dryrun_000_sigma30        2 0.092  156.8  0.0426  0.0510  1.20 +0.0101 -0.0128  [522, 483]   1.244 GOOD
+paired_dryrun_000_sigma30        3 0.122   19.9  0.0294  0.0337  1.15 +0.0272 -0.0133  [466, 302]   1.282 GOOD
+paired_dryrun_000_sigma30        4 0.102   88.7  0.0280  0.0369  1.32 +0.0144 -0.0168  [335, 311]   1.273 GOOD
+paired_dryrun_000_sigma200       0 0.103   55.0  0.0304  0.0301  0.99 +0.0151 -0.0165  [582, 682]   1.153 GOOD
+paired_dryrun_000_sigma200       1 0.101   95.1  0.0245  0.0260  1.06 +0.0054 -0.0133  [373, 633]   1.255 GOOD
+paired_dryrun_000_sigma200       2 0.092  156.8  0.0421  0.0421  1.00 +0.0101 -0.0195  [688, 648]   1.320 GOOD
+paired_dryrun_000_sigma200       3 0.122   19.9  0.0301  0.0313  1.04 +0.0272 -0.0140  [616, 372]   1.363 GOOD
+paired_dryrun_000_sigma200       4 0.102   88.7  0.0247  0.0240  0.97 +0.0144 -0.0116  [582, 369]   1.391 GOOD
+paired_dryrun_000_sigma500       0 0.103   55.0  0.0305  0.0282  0.92 +0.0151 -0.0170  [672, 812]   1.156 GOOD
+paired_dryrun_000_sigma500       1 0.101   95.1  0.0262  0.0242  0.92 +0.0054 -0.0136  [455, 740]   1.233 GOOD
+paired_dryrun_000_sigma500       2 0.092  156.8  0.0398  0.0367  0.92 +0.0101 -0.0182  [817, 747]   1.297 GOOD
+paired_dryrun_000_sigma500       3 0.122   19.9  0.0349  0.0313  0.90 +0.0272 -0.0113  [701, 452]   1.340 GOOD
+paired_dryrun_000_sigma500       4 0.102   88.7  0.0235  0.0211  0.90 +0.0144 -0.0131  [730, 469]   1.363 GOOD
+paired_dryrun_000_sigma900       0 0.103   55.0  0.0299  0.0246  0.82 +0.0151 -0.0165  [752, 927]   1.157 GOOD
+paired_dryrun_000_sigma900       1 0.101   95.1  0.0254  0.0180  0.71 +0.0054 -0.0129  [507, 820]   1.220 GOOD
+paired_dryrun_000_sigma900       2 0.092  156.8  0.0370  0.0307  0.83 +0.0101 -0.0159  [895, 798]   1.280 GOOD
+paired_dryrun_000_sigma900       3 0.122   19.9  0.0341  0.0247  0.73 +0.0272 -0.0106  [767, 505]   1.339 GOOD
+paired_dryrun_000_sigma900       4 0.102   88.7  0.0220  0.0190  0.86 +0.0144 -0.0148  [830, 466]   1.355 GOOD
+random_sigma500_dryrun_000       0 0.107   65.2  0.0288  0.0258  0.90 +0.0053 -0.0178  [460, 833]   1.153 GOOD
+random_sigma500_dryrun_000       1 0.117  134.1  0.0283  0.0250  0.88 +0.0329 -0.0141  [574, 681]   1.192 GOOD
+random_sigma500_dryrun_000       2 0.107   77.8  0.0174  0.0157  0.90 +0.0142 -0.0108  [426, 638]   1.279 TOO_WEAK WEAK
+random_sigma500_dryrun_000       3 0.098  130.0  0.0183  0.0142  0.78 +0.0179 -0.0125  [543, 518]   1.325 GOOD
+random_sigma500_dryrun_000       4 0.127  145.5  0.0229  0.0130  0.57 +0.0308 -0.0116  [329, 327]   1.331 GOOD
+
+--------------------------------
+[Disk reload integrity]
+
+paired_dryrun_000_sigma30: ok True missing [] shape/dtype mismatch [] max reload error 0.0 nan 0 inf 0 | initial vs settled(f32) 0.0 (f32 quantization 2.9799535394836596e-08) | frame39 vs boundary cloud 0.0 | actions vs bank 0.0
+paired_dryrun_000_sigma200: ok True missing [] shape/dtype mismatch [] max reload error 0.0 nan 0 inf 0 | initial vs settled(f32) 0.0 (f32 quantization 2.9799535394836596e-08) | frame39 vs boundary cloud 0.0 | actions vs bank 0.0
+paired_dryrun_000_sigma500: ok True missing [] shape/dtype mismatch [] max reload error 0.0 nan 0 inf 0 | initial vs settled(f32) 0.0 (f32 quantization 2.9799535394836596e-08) | frame39 vs boundary cloud 0.0 | actions vs bank 0.0
+paired_dryrun_000_sigma900: ok True missing [] shape/dtype mismatch [] max reload error 0.0 nan 0 inf 0 | initial vs settled(f32) 0.0 (f32 quantization 2.9799535394836596e-08) | frame39 vs boundary cloud 0.0 | actions vs bank 0.0
+random_sigma500_dryrun_000: ok True missing [] shape/dtype mismatch [] max reload error 0.0 nan 0 inf 0 | initial vs settled(f32) 0.0 (f32 quantization 2.9799535394836596e-08) | frame39 vs boundary cloud 0.0 | actions vs bank 0.0
+
+--------------------------------
+[Disk usage]
+
+paired_dryrun_000_sigma30: npz 42.34 MiB
+paired_dryrun_000_sigma200: npz 42.35 MiB
+paired_dryrun_000_sigma500: npz 42.33 MiB
+paired_dryrun_000_sigma900: npz 42.31 MiB
+random_sigma500_dryrun_000: npz 42.35 MiB
+mean episode size (npz+metadata): 42.36 MiB  (uncompressed arrays 47.45 MiB)
+rollout_object_pos share of npz: 96.4%
+sequence bank per sequence: 3.3 KiB
+dry-run total: 211.8 MiB
+free disk before: 13.15 GiB  after: 12.94 GiB
+
+--------------------------------
+[Projected full dataset]
+
+80 episode estimated size: 3.31 GiB
+expected remaining disk: 9.63 GiB
+
+--------------------------------
+[Status]
+
+episodes: {'paired_dryrun_000_sigma30': 'ok', 'paired_dryrun_000_sigma200': 'ok', 'paired_dryrun_000_sigma500': 'ok', 'paired_dryrun_000_sigma900': 'ok', 'random_sigma500_dryrun_000': 'ok'}
+invalid: none
+
+--------------------------------
+[git status]
+
+before:
+M stress_test_grip.py
+?? action_distribution_pilot.py
+?? gen_full_dataset.py
+?? gen_material_history_pilot.py
+after:
+M stress_test_grip.py
+?? action_distribution_pilot.py
+?? gen_full_dataset.py
+?? gen_material_history_pilot.py

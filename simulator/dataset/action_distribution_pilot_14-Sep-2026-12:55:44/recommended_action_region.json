@@ -1,0 +1,40 @@
+{
+  "status": "CANDIDATE (not final; pending user review)",
+  "midpoint_x": [
+    0.47,
+    0.53
+  ],
+  "midpoint_z": [
+    0.47,
+    0.53
+  ],
+  "angle": [
+    0.0,
+    3.14159265
+  ],
+  "target_gap": [
+    0.07,
+    0.13
+  ],
+  "midpoint_y": 0.14,
+  "midpoint_sampling": "uniform box centered at (0.5, 0.5) (replaces biased 0.01*(randn*2-1) noise), then reject by pin_filter",
+  "start_pose": "pose_from(midpoint, angle): fingers at midpoint -/+ 0.4*(cos a, 0, -sin a)",
+  "gap_to_rate": "rate = (2*0.4 - (gap + 2*0.045)) / (2*30)",
+  "pin_filter": "reject if analytic_pin_distance(gap, offset_along_axis, offset_perp_axis) < 0.005",
+  "analytic_pin_distance": "sqrt(max(gap/2 + 0.045 - |offset_along|, 0)^2 + offset_perp^2) - 0.045 - 0.025; closing axis u = (cos a, 0, -sin a)",
+  "thresholds": {
+    "pin_min": 0.0,
+    "comp_min": 0.018,
+    "height_ratio_min": 0.5,
+    "max_disp_max": 0.25,
+    "clearance_min": -0.03
+  },
+  "pilot_candidates_in_region": {
+    "total": 0,
+    "GOOD": 0,
+    "TOO_WEAK": 0,
+    "TOO_AGGRESSIVE": 0,
+    "PIN_COLLISION": 0,
+    "INVALID_GEOMETRY": 0
+  }
+}

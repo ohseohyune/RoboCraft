@@ -1,0 +1,16 @@
+{
+  "reference_E": 5000.0,
+  "reference_sigma_y": 200,
+  "reference_nu": 0.2,
+  "settle_steps": 100,
+  "seed": 0,
+  "floor_clamp": {
+    "enabled": true,
+    "clamp_y": 0.046875,
+    "affected_particles": 4772,
+    "particles_on_clamp_plane_after_settle": 4719,
+    "total_particles": 20000
+  },
+  "datetime": "2026-09-13T20:13:33.808527",
+  "source_script": "/home/seohy/colcon_ws/src/RoboCraft/simulator/plb/algorithms/gen_multigrip_debug.py"
+}

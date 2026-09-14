@@ -1,0 +1,85 @@
+[Sequential 5x5 sanity check]  action distribution from single-grip pilot + region validation
+
+distribution (user decision):
+  midpoint x, z ~ U(0.47, 0.53), y = 0.14
+  angle ~ U(0, pi)
+  gap ~ U(0.07, 0.13)
+  reject if analytic pin clearance < 0.005
+material: E=5000 sigma_y=500 nu=0.2 (same as pilot), shared settled state, 30 close + 10 retreat, no reset between grips
+thresholds: unchanged (comp_min 0.018, pin_min 0, clearance_min -0.03)
+
+sequence construction (seed 21):
+  25 gaps stratified over bins -> counts [0.07,0.08) 4 | [0.08,0.09) 4 | [0.09,0.10) 4 | [0.10,0.11) 4 | [0.11,0.12) 4 | [0.12,0.13) 5
+  sorted into 5 strength quintiles; sequence s places quintile q at grip (q+s)%5 (Latin square)
+    -> each sequence has one gap per quintile; 0.12-0.13 grips at grip index 4,0,1,2,3 (3 of them on deformed P2-P4)
+  midpoint/angle rejection-sampled per grip with the pin filter (6 rejected draws)
+
+--------------------------------
+[Validation]
+
+initial state == settled (x,v,F,C,finger0,finger1,pin) per episode: yes
+boundary grip_k after == grip_k+1 before (300-cloud + full state): max error 0.0
+NaN 0, Inf 0, ValueError 0, explosion no, max per-step disp 0.0216
+pin: min finger-pin surface distance +0.0055 (25/25 > 0), analytic vs sim max error 3.3e-14
+clearance min -0.0226 (no deep penetration)
+height ratio vs episode initial 1.12 - 1.37 (no collapse)
+
+--------------------------------
+[Counts]
+
+overall: GOOD 21, TOO_WEAK 3, INVALID_GEOMETRY 1 (one-sided contact), PIN_COLLISION 0, TOO_AGGRESSIVE 0
+two-finger contact: 24/25
+single-grip reference (P0 only, 20): GOOD 18, TOO_WEAK 2
+
+by grip index:   g0 5/5 GOOD | g1 4 GOOD 1 weak | g2 4 GOOD 1 weak | g3 4 GOOD 1 weak | g4 4 GOOD 1 invalid
+by gap bin:      0.07-0.08 4/4 | 0.08-0.09 3/4 | 0.09-0.10 3/4 | 0.10-0.11 2/4 | 0.11-0.12 4/4 | 0.12-0.13 5/5
+compression RMS: 0.0073 - 0.0480, mean 0.0268 (single-grip 0.0177 - 0.0360)
+
+gap 0.12-0.13 grips (weak side):
+  seq0 g4 gap 0.123 comp 0.0275 GOOD (P4)
+  seq1 g0 gap 0.124 comp 0.0225 GOOD (P0)
+  seq2 g1 gap 0.127 comp 0.0231 GOOD (P1)
+  seq3 g2 gap 0.124 comp 0.0260 GOOD (P2)
+  seq4 g3 gap 0.120 comp 0.0313 GOOD (P3)
+  -> all two-finger contact, all GOOD, including on deformed states.
+
+--------------------------------
+[Failures]
+
+seq  g  angle   gap   earlier grips within 20 deg (their gap)   width along axis   width-gap   comp    contact(f0,f1)   class
+ 2   2  165.4  0.081  [0.127]                                     0.161           +0.080    0.0158  459 / 419        TOO_WEAK
+ 2   3    1.9  0.097  [0.127, 0.081]                              0.157           +0.060    0.0158  456 / 1          TOO_WEAK
+ 2   4  179.7  0.107  [0.127, 0.081, 0.097]                       0.103           -0.004    0.0073  166 / 0          INVALID_GEOMETRY
+ 3   1   13.9  0.110  [0.102]                                     0.166           +0.056    0.0175  499 / 90         TOO_WEAK
+
+width along axis = extent of the pre-grip 300-cloud along the closing axis, within the finger-radius slab around the closing line.
+
+- The weak-side gap is not what breaks it. All failures are at gaps 0.081-0.110.
+- All 4 failures repeat an earlier closing axis (within 20 deg) on an object that earlier grips already narrowed along that axis.
+  seq2 grips 1-4 all close along ~x (2.7, 165.4, 1.9, 179.7 deg); a waist forms and later same-axis grips barely touch (see visuals/seq_02_states.png).
+- Pre-grip (width along axis - gap) predicts compression: corr 0.90. Failures margin <= +0.080; GOOD down to +0.076 (seq4 g2), so the boundary is ~0.08.
+- Not every axis repeat fails: 5 other repeats were GOOD when the width margin stayed large.
+- These are physically valid interactions (stable, no pin, no penetration): weak / one-sided contact on a narrowed shape.
+
+--------------------------------
+[Interpretation for freezing]
+
+pass: pin collision 0/25, stability, boundary continuity, weak-side gaps 0.12-0.13 5/5 GOOD on P0-P4.
+not clean: 4/25 weak or one-sided, all caused by history (axis repeat), not by the sampled ranges.
+
+options:
+A. freeze as-is. Axis-repeat weak / one-sided grips are legitimate low-excitation data a dynamics model should also predict.
+   Record width-margin per grip so it can be filtered later if needed.
+B. freeze ranges + add a state-dependent rejection (e.g. pre-grip width along axis - gap < 0.08 -> resample angle).
+   Needs the current object cloud at sampling time (fine for sequential generation), but it makes the action distribution
+   depend on state, and the 0.08 cutoff comes from 25 grips.
+
+caveat: only sigma_y=500 tested. sigma_y=30 narrows faster, so axis-repeat weak / one-sided cases will likely be more frequent.
+Running the same 5 saved sequences at sigma_y=30 is a cheap check before freezing.
+
+--------------------------------
+[Outputs]
+
+sequences.npz, runs/seq{s}_grip{k}.npz, grip_table.csv, summary.json, sequential_compression.png
+visuals/seq_0{0..4}.mp4 (201 frames), visuals/seq_0{0..4}_states.png (P0..P5)
+folder size 64M, disk free 10.0 GiB

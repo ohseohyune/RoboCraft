@@ -1,0 +1,27 @@
+{
+  "source_result_dir": "/home/seohy/colcon_ws/src/RoboCraft/robocraft/runs/20260912_165157/control/A/sim_0+alphabet+algo_predict+5_grips+GD+emd_chamfer_h+correction_1+debug_1",
+  "source_iteration": 3,
+  "model_path": "/home/seohy/colcon_ws/src/RoboCraft/robocraft/dump/dump_ngrip_fixed/out_25-Jun-2022-14:53:02.222126/net_epoch_19_iter_34.pth",
+  "n_history": 4,
+  "first_grasp_steps": 40,
+  "local_control_sha256": "31224734118ffaf0c77fe1b7edb1b39158de3fa5af41bdc1784ec025059090d5",
+  "local_model_sha256": "9f8072ce81e98e63d30a3f1706e143e99a831248b70b5d19c1d9410bc119df21",
+  "first_forward_max_abs_difference": 0.0,
+  "same_state_resampling_cd_one_pair": 0.03338680416345596,
+  "numpy_version": "1.21.2",
+  "torch_version": "1.9.1",
+  "mean_one_step_cd": 0.03158591971732676,
+  "mean_free_rollout_cd": 0.03742999229580164,
+  "mean_hold_last_cd": 0.031718240166082975,
+  "scope": "First saved grasp only; no planning, training, or gradient calculation.",
+  "reference": "RGBD reconstructed 300-point MPM observations; includes sampling/reconstruction noise.",
+  "initialization": "Repeated static initial observation for both branches; not the original GIF initial cloud.",
+  "time_alignment": "Predict from history through t; execute saved action[t]; compare to observed t+1.",
+  "action_conditioning": "Matches original predictor call: tool history, not explicit future action tensor.",
+  "limitations": [
+    "Not a clean full-material-state oracle or a paper benchmark reproduction.",
+    "Replaying starts from a fresh MPM initialization; sampling is stochastic.",
+    "One-step and free errors alone do not isolate model error from perception or configuration error.",
+    "No claim that checkpoint gradients equal the original; all inference is no_grad."
+  ]
+}
