@@ -72,6 +72,7 @@ parser.add_argument('--normalization_source', type=str, default='config', choice
 parser.add_argument('--tiny_episode', type=str, default='', help='multimaterial: restrict the train split to this episode id')
 parser.add_argument('--stationary_gate', type=int, default=1, help="1 (legacy): 'fixed' data forces zero object motion when no finger touches")
 parser.add_argument('--contact_only', type=int, default=0, help='multimaterial train split: keep only samples with finger contact at the last input frame')
+parser.add_argument('--sample_keys', type=str, default='', help="multimaterial train split: keep only these grip:start_step windows, e.g. '0:24,1:24'")
 parser.add_argument('--gt_particles', type=int, default=0)
 parser.add_argument('--shape_aug', type=int, default=1)
 

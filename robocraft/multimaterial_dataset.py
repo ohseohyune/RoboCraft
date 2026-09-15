@@ -37,7 +37,7 @@ def shape_nodes(finger0_xyz, finger1_xyz):
 
 class MultiMaterialDynamicsDataset(Dataset):
 
-    def __init__(self, args, split, root, augment=True, episode_ids=None, contact_only=False):
+    def __init__(self, args, split, root, augment=True, episode_ids=None, contact_only=False, sample_keys=None):
         assert split in ('train', 'val', 'test')
         self.args, self.split, self.root, self.augment = args, split, root, augment
         with open(os.path.join(root, 'split_manifest.json')) as f:
@@ -61,6 +61,10 @@ class MultiMaterialDynamicsDataset(Dataset):
                       for e, ep in enumerate(self.episodes) for g in range(self.S[e].shape[0]) for u in range(self.windows_per_grip)]
         if contact_only:   # keep windows whose last input frame has a finger relation (DynamicsPredictor stationary-gate test at j=0)
             self.index = [r for r in self.index if self.in_contact(r)]
+        if sample_keys:    # fixed (grip_id, start_step) windows, e.g. tiny N-sample overfit
+            keep = [r for r in self.index if (r['grip_id'], r['start_step']) in sample_keys]
+            assert len(keep) == len(sample_keys) * len(self.episodes), (sample_keys, len(keep))
+            self.index = keep
 
     def in_contact(self, rec):
         Rs = prepare_input(self.node_frame(rec['episode'], rec['grip_id'], rec['start_step'] + self.args.n_his - 1),

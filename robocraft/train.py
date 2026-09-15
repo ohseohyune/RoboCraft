@@ -39,6 +39,11 @@ def write_run_config(datasets):
                        for phase, d in datasets.items()},
                seed=args.random_seed, normalization_source=args.normalization_source, stationary_gate=bool(args.stationary_gate),
                contact_only=bool(args.contact_only), selected_samples={phase: len(d) for phase, d in datasets.items()},
+               tiny_four_samples=bool(args.sample_keys) and len(datasets['train']) == 4,
+               selected_sample_ids=[dict(episode_id=r['episode_id'], grip_id=r['grip_id'], start_step=r['start_step'],
+                                         episode_sample_index=r['grip_id'] * datasets['train'].windows_per_grip + r['start_step'])
+                                    for r in datasets['train'].index] if args.sample_keys else None,
+               lr=args.lr, num_updates=args.n_epoch * -(-len(datasets['train']) // args.batch_size),
                normalization={k: np.asarray(getattr(args, k)).tolist() for k in ('mean_p', 'std_p', 'mean_d', 'std_d')},
                augment_ratio=args.augment_ratio, hyperparameters={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in vars(args).items()})
     with open(os.path.join(args.outf, 'run_config.json'), 'w') as f:
@@ -54,10 +59,12 @@ def main():
     if args.dataset_type == 'multimaterial':
         from multimaterial_dataset import MultiMaterialDynamicsDataset
         split_of = {'train': 'train', 'valid': 'val'}
+        sample_keys = [tuple(map(int, k.split(':'))) for k in args.sample_keys.split(',')] if args.sample_keys else None
         datasets = {phase: MultiMaterialDynamicsDataset(
             args, split_of[phase], args.processed_root, augment=args.augment_ratio > 0,
             episode_ids=[args.tiny_episode] if args.tiny_episode and phase == 'train' else None,
-            contact_only=bool(args.contact_only) and phase == 'train') for phase in phases}
+            contact_only=bool(args.contact_only) and phase == 'train',
+            sample_keys=sample_keys if phase == 'train' else None) for phase in phases}
         write_run_config(datasets)
     else:
         datasets = {phase: PhysicsFleXDataset(args, phase) for phase in phases}
