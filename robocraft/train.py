@@ -30,6 +30,8 @@ def write_run_config(datasets):
     import subprocess
     with open(os.path.join(args.processed_root, 'processed_config.json')) as f:
         processed = json.load(f)
+    with open(os.path.join(args.processed_root, 'split_manifest.json')) as f:
+        manifest = json.load(f)
     git = lambda *a: subprocess.run(['git', *a], capture_output=True, text=True).stdout.strip()
     cfg = dict(git_commit=git('rev-parse', 'HEAD'), git_status=git('status', '--short'),
                processed_root=os.path.abspath(args.processed_root),
@@ -43,7 +45,10 @@ def write_run_config(datasets):
                selected_sample_ids=[dict(episode_id=r['episode_id'], grip_id=r['grip_id'], start_step=r['start_step'],
                                          episode_sample_index=r['grip_id'] * datasets['train'].windows_per_grip + r['start_step'])
                                     for r in datasets['train'].index] if args.sample_keys else None,
-               lr=args.lr, num_updates=args.n_epoch * -(-len(datasets['train']) // args.batch_size),
+               lr=args.lr, batch_size=args.batch_size, epochs=args.n_epoch, num_workers=args.num_workers,
+               num_updates=args.n_epoch * -(-len(datasets['train']) // args.batch_size),
+               split_samples={s: len(ids) * 5 * datasets['train'].windows_per_grip for s, ids in manifest['splits'].items()},
+               split_manifest_sha256=processed['source_split_manifest_sha256'],
                normalization={k: np.asarray(getattr(args, k)).tolist() for k in ('mean_p', 'std_p', 'mean_d', 'std_d')},
                augment_ratio=args.augment_ratio, hyperparameters={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in vars(args).items()})
     with open(os.path.join(args.outf, 'run_config.json'), 'w') as f:
@@ -55,7 +60,7 @@ def main():
 
     # load training data
 
-    phases = ['train'] if args.valid == 0 else ['valid']
+    phases = {0: ['train'], 1: ['valid'], 2: ['train', 'valid']}[args.valid]
     if args.dataset_type == 'multimaterial':
         from multimaterial_dataset import MultiMaterialDynamicsDataset
         split_of = {'train': 'train', 'valid': 'val'}
@@ -144,6 +149,7 @@ def main():
     # start training
     st_epoch = args.resume_epoch if args.resume_epoch > 0 else 0
     best_valid_loss = np.inf
+    best_epoch = None
 
     training_stats = {'args':vars(args), 'loss':[], 'loss_raw':[], 'iters': [], 'loss_emd': [], 'loss_motion': []}
 
@@ -325,21 +331,24 @@ def main():
             with open(args.outf + '/train.npy','wb') as f:
                 np.save(f, training_stats)
 
+            lr_epoch = get_lr(optimizer)   # lr used during this phase, before any scheduler step
+            if phase == 'valid' and not args.eval:
+                scheduler.step(meter_loss.avg)
+                if meter_loss.avg < best_valid_loss:
+                    best_valid_loss = meter_loss.avg
+                    best_epoch = epoch
+                    torch.save(model.state_dict(), '%s/net_best.pth' % (args.outf))
+
             if args.dataset_type == 'multimaterial':
                 import json
                 training_stats.setdefault('epochs', []).append(dict(
                     epoch=epoch, phase=phase, loss=meter_loss.avg, loss_raw_l1=meter_loss_raw.avg,
                     motion_rmse=[m.avg for m in meter_motion], zero_motion_rmse=meter_zero_motion.avg,
-                    nonfinite=n_nonfinite, lr=get_lr(optimizer)))
+                    nonfinite=n_nonfinite, lr=lr_epoch, lr_after=get_lr(optimizer),
+                    best_valid_loss=best_valid_loss, best_epoch=best_epoch))
                 print('epoch summary', training_stats['epochs'][-1])
                 with open(os.path.join(args.outf, 'epoch_log.json'), 'w') as f:
                     json.dump(training_stats['epochs'], f, indent=1)
-
-            if phase == 'valid' and not args.eval:
-                scheduler.step(meter_loss.avg)
-                if meter_loss.avg < best_valid_loss:
-                    best_valid_loss = meter_loss.avg
-                    torch.save(model.state_dict(), '%s/net_best.pth' % (args.outf))
     
     if args.dataset_type == 'multimaterial':
         torch.save(model.state_dict(), '%s/net_final.pth' % args.outf)

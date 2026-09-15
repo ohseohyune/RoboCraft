@@ -26,7 +26,7 @@ parser.add_argument('--stdreg_weight', type=float, default=0.0)
 parser.add_argument('--matched_motion', type=int, default=0)
 parser.add_argument('--matched_motion_weight', type=float, default=0.0)
 
-parser.add_argument('--valid', type=int, default=0)
+parser.add_argument('--valid', type=int, default=0, help='0: train only, 1: valid only, 2: train + valid each epoch (scheduler, net_best)')
 parser.add_argument('--eval', type=int, default=0)
 parser.add_argument('--verbose_data', type=int, default=0)
 parser.add_argument('--verbose_model', type=int, default=0)
