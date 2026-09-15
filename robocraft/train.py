@@ -45,6 +45,7 @@ def write_run_config(datasets):
                selected_sample_ids=[dict(episode_id=r['episode_id'], grip_id=r['grip_id'], start_step=r['start_step'],
                                          episode_sample_index=r['grip_id'] * datasets['train'].windows_per_grip + r['start_step'])
                                     for r in datasets['train'].index] if args.sample_keys else None,
+               resume_from=os.path.abspath(args.resume_from) if args.resume_from else None,
                lr=args.lr, batch_size=args.batch_size, epochs=args.n_epoch, num_workers=args.num_workers,
                num_updates=args.n_epoch * -(-len(datasets['train']) // args.batch_size),
                split_samples={s: len(ids) * 5 * datasets['train'].windows_per_grip for s, ids in manifest['splits'].items()},
@@ -152,6 +153,26 @@ def main():
     best_epoch = None
 
     training_stats = {'args':vars(args), 'loss':[], 'loss_raw':[], 'iters': [], 'loss_emd': [], 'loss_motion': []}
+
+    if args.resume_from:   # continue a finished multimaterial run in this new outf: weights, epoch log, best, scheduler state
+        import json
+        import shutil
+        with open(os.path.join(args.resume_from, 'epoch_log.json')) as f:
+            training_stats['epochs'] = json.load(f)
+        model.load_state_dict(torch.load(os.path.join(args.resume_from, 'net_final.pth'), map_location=None if use_gpu else 'cpu'))
+        valid = [e for e in training_stats['epochs'] if e['phase'] == 'valid']
+        for e in valid:   # replay val losses: same ReduceLROnPlateau best / num_bad_epochs / lr as the parent
+            scheduler.step(e['loss'])
+            best_valid_loss, best_epoch = (e['loss'], e['epoch']) if e['loss'] < best_valid_loss else (best_valid_loss, best_epoch)
+        optim_path = os.path.join(args.resume_from, 'optim_final.pth')
+        if os.path.exists(optim_path):
+            optimizer.load_state_dict(torch.load(optim_path, map_location=None if use_gpu else 'cpu'))
+        else:   # ponytail: parent run saved no optimizer state, Adam moments restart (scheduler state is replayed exactly above)
+            print('resume_from: no optimizer state in parent, Adam moments reinitialized')
+        assert abs(get_lr(optimizer) - valid[-1]['lr_after']) < 1e-12, (get_lr(optimizer), valid[-1]['lr_after'])
+        st_epoch = valid[-1]['epoch'] + 1
+        shutil.copy(os.path.join(args.resume_from, 'net_best.pth'), os.path.join(args.outf, 'net_best.pth'))
+        print('resumed from %s at epoch %d, best epoch %d (%.6f), lr %g' % (args.resume_from, st_epoch, best_epoch, best_valid_loss, get_lr(optimizer)))
 
     rollout_epoch = -1
     rollout_iter = -1
@@ -341,6 +362,9 @@ def main():
 
             if args.dataset_type == 'multimaterial':
                 import json
+                if phase == phases[-1] and 'train' in phases:   # last completed epoch, overwritten every epoch (saved before the log line)
+                    torch.save(model.state_dict(), '%s/net_final.pth' % args.outf)
+                    torch.save(optimizer.state_dict(), '%s/optim_final.pth' % args.outf)
                 training_stats.setdefault('epochs', []).append(dict(
                     epoch=epoch, phase=phase, loss=meter_loss.avg, loss_raw_l1=meter_loss_raw.avg,
                     motion_rmse=[m.avg for m in meter_motion], zero_motion_rmse=meter_zero_motion.avg,
