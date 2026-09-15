@@ -37,7 +37,7 @@ def shape_nodes(finger0_xyz, finger1_xyz):
 
 class MultiMaterialDynamicsDataset(Dataset):
 
-    def __init__(self, args, split, root, augment=True, episode_ids=None):
+    def __init__(self, args, split, root, augment=True, episode_ids=None, contact_only=False):
         assert split in ('train', 'val', 'test')
         self.args, self.split, self.root, self.augment = args, split, root, augment
         with open(os.path.join(root, 'split_manifest.json')) as f:
@@ -59,6 +59,13 @@ class MultiMaterialDynamicsDataset(Dataset):
         self.windows_per_grip = N_STATES - args.sequence_length + 1
         self.index = [dict(episode=e, episode_id=ep['episode_id'], material=ep['material'], split=ep['split'], grip_id=g, start_step=u)
                       for e, ep in enumerate(self.episodes) for g in range(self.S[e].shape[0]) for u in range(self.windows_per_grip)]
+        if contact_only:   # keep windows whose last input frame has a finger relation (DynamicsPredictor stationary-gate test at j=0)
+            self.index = [r for r in self.index if self.in_contact(r)]
+
+    def in_contact(self, rec):
+        Rs = prepare_input(self.node_frame(rec['episode'], rec['grip_id'], rec['start_step'] + self.args.n_his - 1),
+                           N_PARTICLE, N_SHAPE, self.args, stdreg=self.args.stdreg)[3]
+        return torch.count_nonzero(Rs[:, N_PARTICLE + N_FLOOR:]).item() > 0
 
     def __len__(self):
         return len(self.index)

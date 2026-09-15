@@ -38,6 +38,7 @@ def write_run_config(datasets):
                phases={phase: dict(split=d.split, episodes=[ep['episode_id'] for ep in d.episodes], samples=len(d), augment=d.augment)
                        for phase, d in datasets.items()},
                seed=args.random_seed, normalization_source=args.normalization_source, stationary_gate=bool(args.stationary_gate),
+               contact_only=bool(args.contact_only), selected_samples={phase: len(d) for phase, d in datasets.items()},
                normalization={k: np.asarray(getattr(args, k)).tolist() for k in ('mean_p', 'std_p', 'mean_d', 'std_d')},
                augment_ratio=args.augment_ratio, hyperparameters={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in vars(args).items()})
     with open(os.path.join(args.outf, 'run_config.json'), 'w') as f:
@@ -55,7 +56,8 @@ def main():
         split_of = {'train': 'train', 'valid': 'val'}
         datasets = {phase: MultiMaterialDynamicsDataset(
             args, split_of[phase], args.processed_root, augment=args.augment_ratio > 0,
-            episode_ids=[args.tiny_episode] if args.tiny_episode and phase == 'train' else None) for phase in phases}
+            episode_ids=[args.tiny_episode] if args.tiny_episode and phase == 'train' else None,
+            contact_only=bool(args.contact_only) and phase == 'train') for phase in phases}
         write_run_config(datasets)
     else:
         datasets = {phase: PhysicsFleXDataset(args, phase) for phase in phases}
